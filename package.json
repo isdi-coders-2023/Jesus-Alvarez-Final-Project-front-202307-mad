@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "jest",
     "test:prod": "jest --watchAll --coverage --watchAll=false --passWithNoTests",
-    "test:w": "jest --watchAll --coverage --collectCoverageFrom=src/todo/**/*.{ts,tsx}"
+    "test:w": "jest --watchAll --coverage --collectCoverageFrom=src/todo/**/*.{ts,tsx}",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -41,7 +42,8 @@
     "sass": "^1.66.1",
     "ts-jest": "^29.1.1",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "husky": "^8.0.0"
   },
   "prettier": {
     "singleQuote": true
