@@ -1,10 +1,11 @@
-import { UserNoId } from '../model/user';
+import { UserLoginData, UserNoId } from '../model/user';
 import { ApiUserRepository } from './userRepository';
 
 describe('Given the class ApiUserRepository', () => {
   describe('When it is instantiated', () => {
     const repo = new ApiUserRepository('');
     const item = { '': '' } as unknown as UserNoId;
+    const item2 = { '': '' } as unknown as UserLoginData;
     test('Then, when we call the create() method', async () => {
       global.fetch = jest.fn().mockResolvedValueOnce({
         ok: true,
@@ -20,6 +21,14 @@ describe('Given the class ApiUserRepository', () => {
       });
 
       expect(repo.create(item)).rejects.toThrow();
+    });
+    test('When we call the login() method', async () => {
+      global.fetch = jest.fn().mockResolvedValueOnce({
+        ok: true,
+        json: jest.fn().mockResolvedValue(['Test']),
+      });
+      await repo.login(item2);
+      expect(global.fetch).toHaveBeenCalled();
     });
   });
 });
