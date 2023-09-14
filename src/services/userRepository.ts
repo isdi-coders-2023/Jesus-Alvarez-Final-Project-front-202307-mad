@@ -20,10 +20,10 @@ export class ApiUserRepository {
     return data;
   }
 
-  async login(item: UserLoginData): Promise<User> {
+  async login(user: UserLoginData): Promise<User> {
     const response = await fetch(`${this.urlBase}/login`, {
       method: 'PATCH',
-      body: JSON.stringify(item),
+      body: JSON.stringify(user),
       headers: { 'Content-Type': 'application/json' },
     });
     const data = await response.json();

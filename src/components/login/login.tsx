@@ -1,10 +1,26 @@
+import { SyntheticEvent } from 'react';
+import { useUsers } from '../../hooks/useUsers';
+import { UserLoginData } from '../../model/user';
 import styles from './login.module.scss';
 
 export function Login() {
+  const { usersLogin } = useUsers();
+
+  const handleSubmit = (ev: SyntheticEvent) => {
+    ev.preventDefault();
+    const formElement = ev.currentTarget as HTMLFormElement;
+    const userLogin: UserLoginData = {
+      email: (formElement.elements.namedItem('email') as HTMLFormElement).value,
+      password: (formElement.elements.namedItem('password') as HTMLFormElement)
+        .value,
+    };
+    usersLogin(userLogin);
+  };
+
   return (
     <>
       <div className={styles['main-page']}>
-        <form action="" role="form">
+        <form onSubmit={handleSubmit} role="form">
           <div className={styles['form-2']}>
             <h2>Bienvenido</h2>
             <div>
