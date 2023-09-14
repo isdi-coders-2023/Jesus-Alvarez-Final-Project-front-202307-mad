@@ -1,17 +1,11 @@
-import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
+import usersReducer from '../redux/usersSlice';
 
 export const tennisZoneStore = configureStore({
   reducer: {
-    tennisZoneUsers: () => {},
+    tennisZoneUsers: usersReducer,
   },
 });
 
 export type TennisZoneDispatch = typeof tennisZoneStore.dispatch;
 export type RootState = ReturnType<typeof tennisZoneStore.getState>;
-
-export type TennisZoneThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->;
