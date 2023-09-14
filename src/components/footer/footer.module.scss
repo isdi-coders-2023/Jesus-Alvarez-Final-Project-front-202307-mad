@@ -1,0 +1,29 @@
+footer {
+  background-color: #489d82;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .footer-div {
+    padding: 1.5rem;
+    display: flex;
+    gap: 10rem;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    .logos {
+      display: flex;
+      gap: 0.15rem;
+
+      .github {
+        font-size: 1.5rem;
+      }
+      .instagram {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
