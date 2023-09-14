@@ -1,4 +1,4 @@
-import { AiFillGithub, AiFillInstagram } from 'react-icons/Ai';
+import { AiFillGithub, AiFillInstagram } from 'react-icons/ai';
 import styles from './footer.module.scss';
 
 export function Footer() {
