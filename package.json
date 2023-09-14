@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "test": "jest",
     "test:prod": "jest --watchAll --coverage --watchAll=false --passWithNoTests",
-    "test:w": "jest --watchAll --coverage --collectCoverageFrom=src/todo/**/*.{ts,tsx}",
     "prepare": "husky install"
   },
   "dependencies": {
