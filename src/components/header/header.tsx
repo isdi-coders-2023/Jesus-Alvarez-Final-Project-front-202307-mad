@@ -5,14 +5,16 @@ export function Header() {
     <header>
       <div className={styles['main-header']}>
         <img
-          src="./public/menu-removebg-preview.png"
+          src="/menu-removebg-preview.png"
           alt="A menu logo"
           width="60px"
+          height="60px"
         ></img>
         <img
-          src="./public/tennis_logo.png"
+          src="/tennis_logo.png"
           alt="A tennis ball logo"
           width="60px"
+          height="60px"
         />
       </div>
     </header>

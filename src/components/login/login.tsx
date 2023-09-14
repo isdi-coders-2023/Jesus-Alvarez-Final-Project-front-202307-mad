@@ -8,16 +8,28 @@ export function Login() {
           <div className={styles['form-2']}>
             <h2>Bienvenido</h2>
             <div>
-              <label htmlFor="">Correo electrónico</label>
+              <label htmlFor="email">Correo electrónico</label>
             </div>
             <div>
-              <input type="email" name="email" required />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                autoComplete="off"
+                required
+              />
             </div>
             <div>
-              <label htmlFor="">Contraseña</label>
+              <label htmlFor="password">Contraseña</label>
             </div>
             <div>
-              <input type="password" name="password" required />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                autoComplete="off"
+                required
+              />
             </div>
             <div>
               <span className={styles['registerhere']}>
