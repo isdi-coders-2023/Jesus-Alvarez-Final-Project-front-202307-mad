@@ -1,15 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { User } from '../model/user';
-import { loginThunk } from './usersThunks';
+import { createThunk, loginThunk } from './usersThunks';
 
 export type UsersState = {
   user: User[];
   userStatus: 'logged' | 'visitor';
+  registerStatus: 'registered' | 'error' | '';
 };
 
 const initialState: UsersState = {
   user: [],
   userStatus: 'visitor',
+  registerStatus: '',
 };
 
 const usersSlice = createSlice({
@@ -22,6 +24,12 @@ const usersSlice = createSlice({
     });
     builder.addCase(loginThunk.fulfilled, (state) => {
       state.userStatus = 'logged';
+    });
+    builder.addCase(createThunk.pending, (state) => {
+      state.registerStatus = '';
+    });
+    builder.addCase(createThunk.fulfilled, (state) => {
+      state.registerStatus = 'registered';
     });
   },
 });

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserLoginData } from '../model/user';
-import { loginThunk } from '../redux/usersThunks';
+import { createThunk, loginThunk } from '../redux/usersThunks';
 import { ApiUserRepository } from '../services/userRepository';
 import { RootState, TennisZoneDispatch } from '../store/store';
 
@@ -15,6 +15,10 @@ export function useUsers() {
 
   const usersDispatch = useDispatch<TennisZoneDispatch>();
 
+  const usersRegister = async (data: FormData) => {
+    usersDispatch(createThunk({ repo, data }));
+  };
+
   const usersLogin = async (user: UserLoginData) => {
     usersDispatch(loginThunk({ repo, user }));
   };
@@ -22,5 +26,6 @@ export function useUsers() {
   return {
     usersLogin,
     usersState,
+    usersRegister,
   };
 }

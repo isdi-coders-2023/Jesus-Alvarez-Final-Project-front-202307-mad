@@ -1,12 +1,14 @@
 import { Footer } from './components/footer/footer';
 import { Header } from './components/header/header';
-import { Login } from './components/login/login';
+
+import { Register } from './components/register/register';
 
 function App() {
   return (
     <div>
       <Header></Header>
-      <Login></Login>
+
+      <Register></Register>
       <Footer></Footer>
     </div>
   );
