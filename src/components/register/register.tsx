@@ -1,20 +1,16 @@
 import { SyntheticEvent } from 'react';
 import { useUsers } from '../../hooks/useUsers';
-import { UserLoginData } from '../../model/user';
-import styles from './login.module.scss';
+import styles from './register.module.scss';
 
-export function Login() {
-  const { usersLogin } = useUsers();
+export function Register() {
+  const { usersRegister } = useUsers();
 
   const handleSubmit = (ev: SyntheticEvent) => {
     ev.preventDefault();
-    const formElement = ev.currentTarget as HTMLFormElement;
-    const userLogin: UserLoginData = {
-      email: (formElement.elements.namedItem('email') as HTMLFormElement).value,
-      password: (formElement.elements.namedItem('password') as HTMLFormElement)
-        .value,
-    };
-    usersLogin(userLogin);
+
+    const formElement = ev.target as HTMLFormElement;
+    const formData = new FormData(formElement);
+    usersRegister(formData);
   };
 
   return (
@@ -22,7 +18,31 @@ export function Login() {
       <div className={styles['main-page']}>
         <form onSubmit={handleSubmit} role="form">
           <div className={styles['form-2']}>
-            <h2>Bienvenido</h2>
+            <h2>Crear Cuenta</h2>
+            <div>
+              <label htmlFor="firstName">Nombre</label>
+            </div>
+            <div>
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                autoComplete="off"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="lastName">Apellido</label>
+            </div>
+            <div>
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                autoComplete="off"
+                required
+              />
+            </div>
             <div>
               <label htmlFor="email">Correo electrónico</label>
             </div>
@@ -48,13 +68,14 @@ export function Login() {
               />
             </div>
             <div>
-              <span className={styles['registerhere']}>
-                ¿Aún no eres usuario?
-              </span>
-              <span className={styles['registerhere']}> Registrate aquí</span>
+              <label htmlFor="file">File</label>
             </div>
+            <div>
+              <input name="imageData" id="file" type="file" />
+            </div>
+
             <button className={styles['button-submit']} type="submit">
-              Entrar
+              Registrarse
             </button>
           </div>
         </form>

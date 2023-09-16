@@ -8,5 +8,5 @@ export default {
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',
   },
-  coveragePathIgnorePatterns: ['store.ts'],
+  coveragePathIgnorePatterns: [],
 };

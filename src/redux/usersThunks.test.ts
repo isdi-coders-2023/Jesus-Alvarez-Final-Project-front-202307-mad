@@ -1,4 +1,4 @@
-import { UserLoginData, UserNoId } from '../model/user';
+import { UserLoginData } from '../model/user';
 import { ApiUserRepository } from '../services/userRepository';
 import { tennisZoneStore } from '../store/store';
 import { createThunk, loginThunk } from './usersThunks';
@@ -11,8 +11,8 @@ describe('Given the thunks created', () => {
       } as unknown as ApiUserRepository;
       const mockUser = {
         email: '',
-      } as unknown as UserNoId;
-      tennisZoneStore.dispatch(createThunk({ repo: mockRepo, user: mockUser }));
+      } as unknown as FormData;
+      tennisZoneStore.dispatch(createThunk({ repo: mockRepo, data: mockUser }));
       expect(mockRepo.create).toHaveBeenCalled();
     });
     test('Then, the loginThunk should call the repo', () => {
