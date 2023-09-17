@@ -69,6 +69,8 @@ export function Register() {
             </div>
             <div>
               <label htmlFor="file">File</label>
+            </div>
+            <div>
               <input name="imageData" id="file" type="file" />
             </div>
 

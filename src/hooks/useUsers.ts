@@ -12,7 +12,6 @@ export function useUsers() {
   );
 
   const usersState = useSelector((state: RootState) => state.tennisZoneUsers);
-
   const usersDispatch = useDispatch<TennisZoneDispatch>();
 
   const usersRegister = async (data: FormData) => {

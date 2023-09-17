@@ -7,7 +7,6 @@ function App() {
   return (
     <div>
       <Header></Header>
-
       <Register></Register>
       <Footer></Footer>
     </div>

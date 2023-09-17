@@ -9,9 +9,7 @@ export const createThunk = createAsyncThunk<
     data: FormData;
   }
 >('users/create', async ({ repo, data }) => {
-  console.log(data);
   const fullUser = await repo.create(data);
-
   return fullUser;
 });
 
