@@ -6,12 +6,14 @@ export type UsersState = {
   user: User[];
   userStatus: 'logged' | 'visitor';
   registerStatus: 'registered' | 'error' | '';
+  token: string | undefined;
 };
 
 const initialState: UsersState = {
   user: [],
   userStatus: 'visitor',
   registerStatus: '',
+  token: localStorage.getItem('userToken') as string,
 };
 
 const usersSlice = createSlice({
@@ -22,9 +24,12 @@ const usersSlice = createSlice({
     builder.addCase(loginThunk.pending, (state) => {
       state.userStatus = 'visitor';
     });
-    builder.addCase(loginThunk.fulfilled, (state) => {
-      state.userStatus = 'logged';
-    });
+    builder.addCase(loginThunk.fulfilled, (state, { payload }) => ({
+      ...state,
+      token: payload.token,
+
+      userStatus: 'logged',
+    }));
     builder.addCase(createThunk.pending, (state) => {
       state.registerStatus = '';
     });

@@ -14,6 +14,7 @@ export type UserNoId = UserLoginData & {
 
 export type UserWithId = {
   id: string;
+  token?: string;
 };
 
 export type User = UserNoId & UserWithId;
