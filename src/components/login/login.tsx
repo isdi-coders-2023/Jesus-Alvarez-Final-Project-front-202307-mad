@@ -51,7 +51,9 @@ export function Login() {
               <span className={styles['registerhere']}>
                 ¿Aún no eres usuario?
               </span>
-              <span className={styles['registerhere']}> Registrate aquí</span>
+              <span className={styles['registerhere']}>
+                <a href="/register">Registrate aquí</a>{' '}
+              </span>
             </div>
             <button className={styles['button-submit']} type="submit">
               Entrar

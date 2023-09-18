@@ -1,0 +1,22 @@
+.main-div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  .courtpic {
+    border-radius: 2.5rem;
+  }
+}
+
+.button {
+  font-size: 1.3rem;
+  background-color: #3c638e;
+  color: white;
+  border-radius: 25px;
+
+  align-self: center;
+  margin-bottom: 1rem;
+  border: 1px solid #3c638e;
+  padding: 0.5rem 2rem;
+  width: 10rem;
+}

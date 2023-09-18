@@ -1,16 +1,20 @@
 import { SyntheticEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useUsers } from '../../hooks/useUsers';
 import styles from './register.module.scss';
 
 export function Register() {
   const { usersRegister } = useUsers();
+  const navigate = useNavigate();
 
   const handleSubmit = (ev: SyntheticEvent) => {
     ev.preventDefault();
 
     const formElement = ev.target as HTMLFormElement;
     const formData = new FormData(formElement);
+
     usersRegister(formData);
+    navigate('/login');
   };
 
   return (
