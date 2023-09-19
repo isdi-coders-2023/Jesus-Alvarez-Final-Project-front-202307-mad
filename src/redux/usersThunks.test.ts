@@ -17,11 +17,12 @@ describe('Given the thunks created', () => {
     });
     test('Then, the loginThunk should call the repo', () => {
       const mockRepo = {
-        login: jest.fn(),
+        login: jest.fn().mockResolvedValue({}),
       } as unknown as ApiUserRepository;
       const mockUser = {
         email: '',
       } as unknown as UserLoginData;
+
       tennisZoneStore.dispatch(loginThunk({ repo: mockRepo, user: mockUser }));
       expect(mockRepo.login).toHaveBeenCalled();
     });

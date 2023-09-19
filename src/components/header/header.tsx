@@ -5,6 +5,7 @@ import styles from './header.module.scss';
 
 export function Header() {
   const [menuState, setMenuState] = useState(false);
+
   if (menuState === false) {
     return (
       <header>
@@ -12,6 +13,7 @@ export function Header() {
           <BiMenuAltLeft
             className={styles['main-menu']}
             onClick={() => setMenuState(!menuState)}
+            role="button"
           />
 
           <a href="/" className={styles['tennisball']}>
@@ -23,10 +25,11 @@ export function Header() {
   } else {
     return (
       <div className={styles['nav-div']}>
-        <ul className={styles['nav-menu']}>
+        <ul role="list" className={styles['nav-menu']}>
           <li
             className={styles['cross']}
             onClick={() => setMenuState(!menuState)}
+            role="button2"
           >
             <IoClose />
           </li>

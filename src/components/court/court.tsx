@@ -14,7 +14,7 @@ export function Court({ court }: Props) {
         alt="A court picture."
       />
       <div>
-        <p>{court.name.toLocaleUpperCase()}</p>
+        <p>{court.name}</p>
       </div>
     </li>
   );
