@@ -36,7 +36,7 @@ describe('Given the component court-reviews', () => {
     (useCourts as jest.Mock).mockReturnValue({
       courtsState: { courts: mockCourt },
     });
-    Array.prototype.find;
+
     beforeEach(() => {
       jest.mock('react-router-dom', () => ({
         ...jest.requireActual('react-router-dom'),

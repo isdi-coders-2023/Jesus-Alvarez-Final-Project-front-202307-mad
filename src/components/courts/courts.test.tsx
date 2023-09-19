@@ -31,7 +31,6 @@ describe('Given the component Courts', () => {
     test('Then a list should be in the document', () => {
       const element = screen.getByRole('list');
       expect(element).toBeInTheDocument();
-      // expect(CourtCard).toHaveBeenCalled();
     });
   });
 });
