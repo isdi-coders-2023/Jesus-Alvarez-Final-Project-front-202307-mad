@@ -4,7 +4,7 @@ import { useUsers } from '../../hooks/useUsers';
 import styles from './register.module.scss';
 
 export function Register() {
-  const { usersRegister } = useUsers();
+  const { usersRegister, usersState } = useUsers();
   const navigate = useNavigate();
 
   const handleSubmit = (ev: SyntheticEvent) => {
@@ -14,7 +14,11 @@ export function Register() {
     const formData = new FormData(formElement);
 
     usersRegister(formData);
-    navigate('/login');
+    if (usersState.registerStatus === 'registered') {
+      navigate('/login');
+    } else {
+      navigate('/error');
+    }
   };
 
   return (

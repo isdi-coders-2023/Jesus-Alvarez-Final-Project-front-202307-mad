@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { BiMenuAltLeft, BiTennisBall } from 'react-icons/bi';
 import { IoClose } from 'react-icons/io5';
 import styles from './header.module.scss';
 
@@ -9,20 +9,13 @@ export function Header() {
     return (
       <header>
         <div className={styles['main-header']}>
-          <img
-            src="/menu-removebg-preview.png"
-            alt="A menu logo"
-            width="60px"
-            height="60px"
+          <BiMenuAltLeft
+            className={styles['main-menu']}
             onClick={() => setMenuState(!menuState)}
           />
-          <a href="/">
-            <img
-              src="/tennis_logo.png"
-              alt="A tennis ball logo"
-              width="60px"
-              height="60px"
-            />
+
+          <a href="/" className={styles['tennisball']}>
+            <BiTennisBall />
           </a>
         </div>
       </header>

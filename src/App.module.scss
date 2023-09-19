@@ -1,4 +1,4 @@
-/* body,
+body,
 html {
   margin: 0;
   padding: 0;
@@ -10,5 +10,10 @@ html {
 }
 
 body {
-  min-height: 100%;
-} */
+  min-height: 100vh;
+}
+
+footer {
+  position: sticky;
+  top: 100%;
+}

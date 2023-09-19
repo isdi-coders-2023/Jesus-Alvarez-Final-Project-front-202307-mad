@@ -4,6 +4,7 @@ import HomePage from '../pages/home/home-page';
 
 const LoginPage = lazy(() => import('../pages/login/login-page'));
 const RegisterPage = lazy(() => import('../pages/register/register-page'));
+const ErrorPage = lazy(() => import('../pages/error/error-page'));
 
 export const AppRouter = () => {
   return (
@@ -12,6 +13,7 @@ export const AppRouter = () => {
         <Route path="/" element={<HomePage></HomePage>}></Route>
         <Route path="/login" element={<LoginPage></LoginPage>}></Route>
         <Route path="/register" element={<RegisterPage></RegisterPage>}></Route>
+        <Route path="/error" element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
     </Suspense>
   );
