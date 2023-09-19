@@ -12,7 +12,9 @@ export function Home() {
         height="364px"
       ></img>
       <p className={styles['Madrid']}>Madrid</p>
-      <button className={styles['button']}>Pistas</button>
+      <a className={styles['button']} href="/courts">
+        Pistas
+      </a>
     </div>
   );
 }
