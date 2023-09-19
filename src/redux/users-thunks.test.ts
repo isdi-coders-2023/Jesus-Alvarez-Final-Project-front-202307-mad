@@ -1,7 +1,7 @@
 import { UserLoginData } from '../model/user';
-import { ApiUserRepository } from '../services/userRepository';
+import { ApiUserRepository } from '../services/user-repository';
 import { tennisZoneStore } from '../store/store';
-import { createThunk, loginThunk } from './usersThunks';
+import { createThunk, loginThunk } from './users-thunks';
 
 describe('Given the thunks created', () => {
   describe('When we use them', () => {

@@ -1,6 +1,6 @@
 import { SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useUsers } from '../../hooks/useUsers';
+import { useUsers } from '../../hooks/use-users';
 import styles from './register.module.scss';
 
 export function Register() {

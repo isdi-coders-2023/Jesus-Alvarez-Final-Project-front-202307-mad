@@ -1,5 +1,5 @@
 import { SyntheticEvent } from 'react';
-import { useUsers } from '../../hooks/useUsers';
+import { useUsers } from '../../hooks/use-users';
 import { UserLoginData } from '../../model/user';
 import styles from './login.module.scss';
 

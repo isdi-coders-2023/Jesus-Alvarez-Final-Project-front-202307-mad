@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
-import { useUsers } from '../../hooks/useUsers';
+import { useUsers } from '../../hooks/use-users';
 import { tennisZoneStore } from '../../store/store';
 import { Register } from './register';
 

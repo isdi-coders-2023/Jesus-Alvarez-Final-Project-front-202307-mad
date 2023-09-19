@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import usersReducer from '../redux/usersSlice';
+import courtsReducer from '../redux/courts-slice';
+import usersReducer from '../redux/users-slice';
 
 export const tennisZoneStore = configureStore({
   reducer: {
     tennisZoneUsers: usersReducer,
+    tennisZoneCourts: courtsReducer,
   },
 });
 

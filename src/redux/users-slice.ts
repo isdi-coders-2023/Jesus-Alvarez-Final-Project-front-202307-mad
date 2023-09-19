@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { User } from '../model/user';
-import { createThunk, loginThunk } from './usersThunks';
+import { createThunk, loginThunk } from './users-thunks';
 
 export type UsersState = {
   user: User[];
