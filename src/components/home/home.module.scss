@@ -1,0 +1,43 @@
+.main-div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  .courtpic {
+    border-radius: 2.5rem;
+  }
+}
+a {
+  text-decoration: none;
+  text-align: center;
+}
+
+.button {
+  font-size: 1.3rem;
+  background-color: #3c638e;
+  color: white;
+  border-radius: 25px;
+
+  align-self: center;
+  margin-bottom: 1rem;
+  border: 1px solid #3c638e;
+  padding: 0.5rem 2rem;
+  width: 8rem;
+}
+
+.Madrid {
+  color: #3c638e;
+  font-size: 3rem;
+  margin: 0;
+  padding: 1rem;
+  font-weight: 900;
+}
+
+.Tenniszone {
+  color: #3c638e;
+  font-size: 3rem;
+  margin: 0;
+  padding: 1rem;
+  font-weight: 900;
+  font-style: italic;
+}

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { User, UserLoginData } from '../model/user';
-import { ApiUserRepository } from '../services/userRepository';
+import { ApiUserRepository } from '../services/user-repository';
 
 export const createThunk = createAsyncThunk<
   User,
@@ -21,5 +21,6 @@ export const loginThunk = createAsyncThunk<
   }
 >('users/login', async ({ repo, user }) => {
   const loggedUser = await repo.login(user);
+  localStorage.setItem('userToken', loggedUser.token as string);
   return loggedUser;
 });

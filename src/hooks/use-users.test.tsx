@@ -5,7 +5,7 @@ import { Provider, useDispatch } from 'react-redux';
 
 import { UserLoginData } from '../model/user';
 import { tennisZoneStore } from '../store/store';
-import { useUsers } from './useUsers';
+import { useUsers } from './use-users';
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),

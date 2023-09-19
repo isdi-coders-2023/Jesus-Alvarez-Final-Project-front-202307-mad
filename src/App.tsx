@@ -1,13 +1,16 @@
+import styles from './App.module.scss';
 import { Footer } from './components/footer/footer';
 import { Header } from './components/header/header';
-
-import { Register } from './components/register/register';
+import { AppRouter } from './routes/app-routes';
 
 function App() {
   return (
     <div>
       <Header></Header>
-      <Register></Register>
+      <div className={styles['main-div']}>
+        <AppRouter></AppRouter>
+      </div>
+
       <Footer></Footer>
     </div>
   );

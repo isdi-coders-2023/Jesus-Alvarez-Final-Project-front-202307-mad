@@ -1,12 +1,71 @@
-header {
+.main-header {
+  padding: 2rem;
   display: flex;
-
-  .main-header {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding: 0.5rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2.5rem;
+  color: #3c638e;
+  text-decoration: none;
+  font-weight: 900;
+  .main-menu {
+    cursor: pointer;
   }
+  a {
+    display: flex;
+    align-items: center;
+    color: #3c638e;
+  }
+  a:hover {
+    color: #c4d522;
+  }
+}
+
+nav-div {
+  background-color: white;
+  width: 100%;
+}
+
+ul {
+  font-weight: 600;
+  color: #3c638e;
+  margin: 0;
+  padding: 1rem 4rem;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+
+  li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    text-decoration: none;
+
+    a {
+      text-decoration: none;
+      color: #3c638e;
+    }
+
+    .entrar-btn {
+      font-size: 1.3rem;
+      background-color: #3c638e;
+      color: white;
+      border-radius: 25px;
+      margin: 0;
+      align-self: center;
+      border: 1px solid #3c638e;
+      padding: 0.5rem 2rem;
+      width: 19rem;
+    }
+  }
+}
+
+.cross {
+  align-self: flex-end;
+  font-size: 1.5rem;
+  color: black;
 }

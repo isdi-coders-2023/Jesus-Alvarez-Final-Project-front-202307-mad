@@ -1,16 +1,24 @@
 import { SyntheticEvent } from 'react';
-import { useUsers } from '../../hooks/useUsers';
+import { useNavigate } from 'react-router-dom';
+import { useUsers } from '../../hooks/use-users';
 import styles from './register.module.scss';
 
 export function Register() {
-  const { usersRegister } = useUsers();
+  const { usersRegister, usersState } = useUsers();
+  const navigate = useNavigate();
 
   const handleSubmit = (ev: SyntheticEvent) => {
     ev.preventDefault();
 
     const formElement = ev.target as HTMLFormElement;
     const formData = new FormData(formElement);
+
     usersRegister(formData);
+    if (usersState.registerStatus === 'registered') {
+      navigate('/login');
+    } else {
+      navigate('/error');
+    }
   };
 
   return (

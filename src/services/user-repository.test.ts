@@ -1,5 +1,5 @@
 import { UserLoginData } from '../model/user';
-import { ApiUserRepository } from './userRepository';
+import { ApiUserRepository } from './user-repository';
 
 describe('Given the class ApiUserRepository', () => {
   describe('When it is instantiated', () => {

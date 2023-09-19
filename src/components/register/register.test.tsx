@@ -1,21 +1,29 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { useUsers } from '../../hooks/useUsers';
+import { MemoryRouter } from 'react-router-dom';
+import { useUsers } from '../../hooks/use-users';
 import { tennisZoneStore } from '../../store/store';
 import { Register } from './register';
 
-jest.mock('../../hooks/useUsers');
+jest.mock('../../hooks/use-users');
 
 describe('Given the component Register', () => {
   describe('When it is rendered', () => {
-    (useUsers as jest.Mock).mockReturnValue({ usersRegister: jest.fn() });
-
+    const changedState = {
+      registerStatus: 'registered',
+    };
+    (useUsers as jest.Mock).mockReturnValue({
+      usersRegister: jest.fn().mockResolvedValue(changedState),
+      usersState: { registerStatus: 'registered' },
+    });
     beforeEach(() => {
       render(
-        <Provider store={tennisZoneStore}>
-          <Register></Register>
-        </Provider>
+        <MemoryRouter>
+          <Provider store={tennisZoneStore}>
+            <Register></Register>
+          </Provider>
+        </MemoryRouter>
       );
     });
 
@@ -27,6 +35,7 @@ describe('Given the component Register', () => {
       const formElement = screen.getByRole('form');
       await fireEvent.submit(formElement);
       expect(useUsers().usersRegister).toHaveBeenCalled();
+      expect(changedState.registerStatus).toEqual('registered');
     });
   });
 });

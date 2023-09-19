@@ -1,5 +1,5 @@
 import { SyntheticEvent } from 'react';
-import { useUsers } from '../../hooks/useUsers';
+import { useUsers } from '../../hooks/use-users';
 import { UserLoginData } from '../../model/user';
 import styles from './login.module.scss';
 
@@ -47,11 +47,13 @@ export function Login() {
                 required
               />
             </div>
-            <div>
+            <div className={styles['register']}>
               <span className={styles['registerhere']}>
                 ¿Aún no eres usuario?
               </span>
-              <span className={styles['registerhere']}> Registrate aquí</span>
+              <span className={styles['registerhere']}>
+                <a href="/register">Registrate aquí</a>
+              </span>
             </div>
             <button className={styles['button-submit']} type="submit">
               Entrar
