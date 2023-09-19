@@ -5,7 +5,7 @@ import { useUsers } from '../../hooks/use-users';
 import { tennisZoneStore } from '../../store/store';
 import { Login } from './login';
 
-jest.mock('../../hooks/useUsers');
+jest.mock('../../hooks/use-users');
 
 describe('Given the component Login', () => {
   describe('When it is rendered', () => {

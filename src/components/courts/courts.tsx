@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useCourts } from '../../hooks/use-courts';
 import { Court as court } from '../../model/court';
-import { Court } from '../court/court';
+import { CourtCard } from '../court-card/court-card';
 
 export function Courts() {
   const { getCourts, courtsState } = useCourts();
@@ -14,7 +14,7 @@ export function Courts() {
     <div>
       <ul>
         {courtsState.courts.map((item: court, index: number) => (
-          <Court key={index} court={item}></Court>
+          <CourtCard key={index} court={item}></CourtCard>
         ))}
       </ul>
     </div>

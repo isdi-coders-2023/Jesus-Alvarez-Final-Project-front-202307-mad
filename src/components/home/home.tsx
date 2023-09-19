@@ -6,7 +6,7 @@ export function Home() {
       <p className={styles['Tenniszone']}>Tennis Zone</p>
       <img
         className={styles['courtpic']}
-        src="./public/guilherme-maggieri-OH5g9IgcMWs-unsplash.jpg"
+        src="/guilherme-maggieri-OH5g9IgcMWs-unsplash.jpg"
         alt="A court picture"
         width="300px"
         height="364px"

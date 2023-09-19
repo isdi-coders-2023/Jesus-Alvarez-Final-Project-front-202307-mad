@@ -6,7 +6,7 @@ import { useUsers } from '../../hooks/use-users';
 import { tennisZoneStore } from '../../store/store';
 import { Register } from './register';
 
-jest.mock('../../hooks/useUsers');
+jest.mock('../../hooks/use-users');
 
 describe('Given the component Register', () => {
   describe('When it is rendered', () => {
