@@ -24,11 +24,11 @@ const usersSlice = createSlice({
     builder.addCase(loginThunk.pending, (state) => {
       state.userStatus = 'visitor';
     });
-    builder.addCase(loginThunk.fulfilled, (state, { payload }) => ({
-      ...state,
-      token: payload.token,
-      userStatus: 'logged',
-    }));
+    builder.addCase(loginThunk.fulfilled, (state, { payload }) => {
+      state.token = payload.token;
+      console.log(payload);
+      state.userStatus = 'logged';
+    });
     builder.addCase(createThunk.pending, (state) => {
       state.registerStatus = '';
     });

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Court } from '../model/court';
-import { getCourtsThunk } from './courts-thunk';
+import { getCourtsThunk } from './courts-thunks';
 
 export type CourtsState = {
   courts: Court[];

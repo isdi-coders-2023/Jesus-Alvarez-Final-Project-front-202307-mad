@@ -1,4 +1,5 @@
 import { ImageData } from './image';
+import { Review } from './review';
 
 export type UserLoginData = {
   email: string;
@@ -9,7 +10,7 @@ export type UserNoId = UserLoginData & {
   firstName: string;
   lastName: string;
   imageData: ImageData;
-  reviews: string[];
+  reviews: Review;
 };
 
 export type UserWithId = {

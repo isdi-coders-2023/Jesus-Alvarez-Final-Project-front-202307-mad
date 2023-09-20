@@ -11,7 +11,9 @@ export function useUsers() {
     []
   );
 
-  const usersState = useSelector((state: RootState) => state.tennisZoneUsers);
+  const { user, userStatus, registerStatus, token } = useSelector(
+    (state: RootState) => state.tennisZoneUsers
+  );
   const usersDispatch = useDispatch<TennisZoneDispatch>();
 
   const usersRegister = async (data: FormData) => {
@@ -24,7 +26,10 @@ export function useUsers() {
 
   return {
     usersLogin,
-    usersState,
+    user,
+    userStatus,
+    registerStatus,
+    token,
     usersRegister,
   };
 }

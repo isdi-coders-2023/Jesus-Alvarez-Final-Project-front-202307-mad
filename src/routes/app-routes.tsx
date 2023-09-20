@@ -1,7 +1,8 @@
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { CourtReviews } from '../components/court-reviews/court-reviews';
+import { CourtDetails } from '../components/court-details/court-details';
+import { ReviewForm } from '../components/review-form/review-form';
 import HomePage from '../pages/home/home-page';
 
 const LoginPage = lazy(() => import('../pages/login/login-page'));
@@ -20,8 +21,9 @@ export const AppRouter = () => {
         <Route path="/courts" element={<CourtsPage></CourtsPage>}></Route>
         <Route
           path="/courts/:id"
-          element={<CourtReviews></CourtReviews>}
+          element={<CourtDetails></CourtDetails>}
         ></Route>
+        <Route path="/review" element={<ReviewForm></ReviewForm>}></Route>
       </Routes>
     </Suspense>
   );

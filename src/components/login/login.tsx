@@ -4,8 +4,9 @@ import { UserLoginData } from '../../model/user';
 import styles from './login.module.scss';
 
 export function Login() {
-  const { usersLogin } = useUsers();
+  const { usersLogin, user } = useUsers();
 
+  console.log(user);
   const handleSubmit = (ev: SyntheticEvent) => {
     ev.preventDefault();
     const formElement = ev.currentTarget as HTMLFormElement;

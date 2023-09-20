@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCourtsThunk } from '../redux/courts-thunk';
+import { getCourtsThunk } from '../redux/courts-thunks';
 import { ApiCourtRepository } from '../services/court-repository';
 import { RootState, TennisZoneDispatch } from '../store/store';
 
@@ -10,7 +10,9 @@ export function useCourts() {
     []
   );
 
-  const courtsState = useSelector((state: RootState) => state.tennisZoneCourts);
+  const { courtsStatus, courts } = useSelector(
+    (state: RootState) => state.tennisZoneCourts
+  );
   const courtsDispatch = useDispatch<TennisZoneDispatch>();
 
   const getCourts = useCallback(async () => {
@@ -19,6 +21,7 @@ export function useCourts() {
 
   return {
     getCourts,
-    courtsState,
+    courtsStatus,
+    courts,
   };
 }

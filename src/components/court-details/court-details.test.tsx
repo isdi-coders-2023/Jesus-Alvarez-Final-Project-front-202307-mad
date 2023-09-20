@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { useCourts } from '../../hooks/use-courts';
 import { Court } from '../../model/court';
 import { tennisZoneStore } from '../../store/store';
-import { CourtReviews } from './court-reviews';
+import { CourtDetails } from './court-details';
 
 jest.mock('../../hooks/use-courts');
 
@@ -47,7 +47,7 @@ describe('Given the component court-reviews', () => {
       render(
         <MemoryRouter>
           <Provider store={tennisZoneStore}>
-            <CourtReviews></CourtReviews>
+            <CourtDetails></CourtDetails>
           </Provider>
         </MemoryRouter>
       );

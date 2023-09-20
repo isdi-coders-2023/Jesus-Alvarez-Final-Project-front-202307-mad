@@ -5,7 +5,7 @@ import { CourtCard } from '../court-card/court-card';
 import styles from './courts.module.scss';
 
 export function Courts() {
-  const { getCourts, courtsState } = useCourts();
+  const { getCourts, courts } = useCourts();
 
   useEffect(() => {
     getCourts();
@@ -15,7 +15,7 @@ export function Courts() {
     <div>
       <h2 className={styles['title']}>Pistas</h2>
       <ul className={styles['ul-courts']}>
-        {courtsState.courts.map((item: court, index: number) => (
+        {courts.map((item: court, index: number) => (
           <CourtCard key={index} court={item}></CourtCard>
         ))}
       </ul>
