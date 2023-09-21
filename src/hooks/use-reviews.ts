@@ -1,6 +1,11 @@
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createReviewThunk, getReviewsThunk } from '../redux/reviews-thunk';
+import { Review } from '../model/review';
+import {
+  createReviewThunk,
+  deleteReviewThunk,
+  getReviewsThunk,
+} from '../redux/reviews-thunk';
 import { ApiReviewRepository } from '../services/reviews-repository';
 import { RootState, TennisZoneDispatch } from '../store/store';
 
@@ -23,9 +28,14 @@ export function useReviews() {
     reviewsDispatch(createReviewThunk({ repo, data }));
   };
 
+  const deleteReviews = async (review: Review) => {
+    reviewsDispatch(deleteReviewThunk({ repo, review }));
+  };
+
   return {
     getReviews,
     reviewsState,
     createReviews,
+    deleteReviews,
   };
 }

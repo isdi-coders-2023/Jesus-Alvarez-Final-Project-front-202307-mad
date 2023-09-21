@@ -7,10 +7,9 @@ import { Court } from '../../model/court';
 import styles from './review-form.module.scss';
 
 export function ReviewForm() {
-  const { user } = useUsers();
+  const { userId } = useUsers();
   const { courts } = useCourts();
   const { createReviews } = useReviews();
-  const userid = String(user);
 
   const { id } = useParams();
   const court = courts.find((court) => court.id === id) as Court;
@@ -25,18 +24,16 @@ export function ReviewForm() {
 
   return (
     <>
-      <h1>HOLA</h1>
       <div className={styles['main-page']}>
         <form onSubmit={handleSubmit} role="form">
           <div className={styles['form-2']}>
-            <h2>¿Jugaste aquí?</h2>
+            <h3>¿Jugaste aquí?</h3>
             <h3>Deja una reseña</h3>
             <div>
               <label htmlFor="description"></label>
             </div>
             <div>
-              <input
-                type="text"
+              <textarea
                 name="description"
                 id="description"
                 autoComplete="off"
@@ -47,15 +44,15 @@ export function ReviewForm() {
               <label htmlFor="file">File</label>
             </div>
             <div>
-              <input name="imageData" id="file" type="file" />
+              <input name="image" id="file" type="file" />
             </div>
             <div></div>
             <div className={styles['displaynone']}>
               <label htmlFor="userId">userId</label>
             </div>
-            <div>
+            <div className={styles['displaynone']}>
               <input
-                value={userid}
+                value={userId}
                 type="text"
                 name="userId"
                 id="userId"
@@ -63,10 +60,10 @@ export function ReviewForm() {
                 required
               />
             </div>
-            <div>
+            <div className={styles['displaynone']}>
               <label htmlFor="courtId">courtId</label>
             </div>
-            <div>
+            <div className={styles['displaynone']}>
               <input
                 value={court.id}
                 type="text"
@@ -79,7 +76,7 @@ export function ReviewForm() {
           </div>
 
           <button className={styles['button-submit']} type="submit">
-            Registrarse
+            Enviar
           </button>
         </form>
       </div>

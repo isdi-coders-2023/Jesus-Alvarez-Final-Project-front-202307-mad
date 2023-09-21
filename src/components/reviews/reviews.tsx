@@ -15,8 +15,8 @@ export function Reviews() {
 
   return (
     <div className={styles['reviewdiv']}>
-      {reviews.map((item: Review) => (
-        <ReviewCard review={item} />
+      {reviews.map((item: Review, index: number) => (
+        <ReviewCard key={index} review={item} />
       ))}
     </div>
   );

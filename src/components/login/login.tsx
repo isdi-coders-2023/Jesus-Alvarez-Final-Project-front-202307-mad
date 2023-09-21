@@ -1,12 +1,13 @@
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useUsers } from '../../hooks/use-users';
 import { UserLoginData } from '../../model/user';
 import styles from './login.module.scss';
 
 export function Login() {
-  const { usersLogin, user } = useUsers();
+  const { usersLogin, userStatus } = useUsers();
+  const navigate = useNavigate();
 
-  console.log(user);
   const handleSubmit = (ev: SyntheticEvent) => {
     ev.preventDefault();
     const formElement = ev.currentTarget as HTMLFormElement;
@@ -18,6 +19,10 @@ export function Login() {
     usersLogin(userLogin);
   };
 
+  useEffect(() => {
+    if (userStatus === 'visitor') return;
+    if (userStatus === 'logged') navigate('/');
+  }, [userStatus, navigate]);
   return (
     <>
       <div className={styles['main-page']}>

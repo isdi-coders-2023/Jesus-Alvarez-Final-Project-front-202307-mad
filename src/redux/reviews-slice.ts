@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Review } from '../model/review';
-import { getReviewsThunk } from './reviews-thunk';
+import { createReviewThunk, getReviewsThunk } from './reviews-thunk';
 
 export type ReviewsState = {
   reviews: Review[];
-  reviewsStatus: '' | 'loading' | 'loaded';
+  reviewsStatus: '' | 'loading' | 'loaded' | 'deleted' | 'created';
 };
 
 const initialState: ReviewsState = {
@@ -27,6 +27,12 @@ const reviewsSlice = createSlice({
         state.reviews = payload;
       }
     );
+    builder.addCase(createReviewThunk.pending, (state) => {
+      state.reviewsStatus = 'loading';
+    });
+    builder.addCase(createReviewThunk.fulfilled, (state) => {
+      state.reviewsStatus = 'created';
+    });
   },
 });
 

@@ -20,3 +20,14 @@ export const createReviewThunk = createAsyncThunk<
   const fullReview = await repo.create(data);
   return fullReview;
 });
+
+export const deleteReviewThunk = createAsyncThunk<
+  Review['id'],
+  {
+    repo: ApiReviewRepository;
+    review: Review;
+  }
+>('reviews/delete', async ({ repo, review }) => {
+  await repo.delete(review.id);
+  return review.id;
+});

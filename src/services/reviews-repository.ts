@@ -16,8 +16,18 @@ export class ApiReviewRepository {
       method: 'POST',
       body: item,
     });
-
+    if (!response.ok)
+      throw new Error(`Error ${response.status}: ${response.statusText}`);
     const data = await response.json();
+
     return data;
+  }
+
+  async delete(id: string): Promise<void> {
+    const response = await fetch(`${this.urlBase}/${id}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok)
+      throw new Error(`Error ${response.status}: ${response.statusText}`);
   }
 }
