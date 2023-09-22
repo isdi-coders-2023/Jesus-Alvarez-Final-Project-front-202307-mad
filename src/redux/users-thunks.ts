@@ -21,11 +21,6 @@ export const loginThunk = createAsyncThunk<
   }
 >('users/login', async ({ repo, user }) => {
   const loggedUser = await repo.login(user);
-  localStorage.setItem('userToken', loggedUser.token as string);
-  localStorage.setItem('currentUserId', loggedUser.user.id as string);
-  localStorage.setItem(
-    'currentUserFirstName',
-    loggedUser.user.firstName as string
-  );
+
   return loggedUser;
 });

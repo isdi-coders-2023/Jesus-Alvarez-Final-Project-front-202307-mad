@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './home.module.scss';
 
 export function Home() {
@@ -12,9 +13,9 @@ export function Home() {
         height="364px"
       ></img>
       <p className={styles['Madrid']}>Madrid</p>
-      <a className={styles['button']} href="/courts">
+      <Link className={styles['button']} to="/courts">
         Pistas
-      </a>
+      </Link>
     </div>
   );
 }

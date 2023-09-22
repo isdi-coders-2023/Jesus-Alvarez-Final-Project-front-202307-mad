@@ -4,40 +4,34 @@ import { User } from '../model/user';
 import { createThunk, loginThunk } from './users-thunks';
 
 export type UsersState = {
-  user: User[];
-  userStatus: 'logged' | 'visitor';
+  user: User | undefined;
+  userStatus: 'logged' | 'visitor' | 'loading';
   registerStatus: 'registered' | 'error' | '';
   token: string | undefined;
-  userId: string;
-  userFirstName: string;
 };
 
 const initialState: UsersState = {
-  user: [],
-  userFirstName: localStorage.getItem('currentUserFirstName') as string,
-  userId: localStorage.getItem('currentUserId') as string,
+  user: undefined,
+  token: '',
   userStatus: 'visitor',
   registerStatus: '',
-  token: localStorage.getItem('userToken') as string,
 };
 
 const usersSlice = createSlice({
   name: 'users',
   initialState: initialState,
   reducers: {
-    logout: (state) => {
-      state.userId = '';
-    },
+    // logout: (state) => {
+    //   state.userId = '';
+    // },
   },
   extraReducers: (builder) => {
     builder.addCase(loginThunk.pending, (state) => {
-      state.userStatus = 'visitor';
+      state.userStatus = 'loading';
     });
     builder.addCase(loginThunk.fulfilled, (state, { payload }) => {
       state.token = payload.token;
-      state.userFirstName = payload.user.firstName;
-      state.userId = payload.user.id;
-
+      state.user = payload.user;
       state.userStatus = 'logged';
     });
     builder.addCase(createThunk.pending, (state) => {
@@ -49,5 +43,5 @@ const usersSlice = createSlice({
   },
 });
 
-export const { logout } = usersSlice.actions;
+export const actions = usersSlice.actions;
 export default usersSlice.reducer;

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BiMenuAltLeft, BiTennisBall } from 'react-icons/bi';
 import { IoClose } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 import { useUsers } from '../../hooks/use-users';
 import styles from './header.module.scss';
 
@@ -23,9 +24,9 @@ export function Header() {
             role="button"
           />
 
-          <a href="/" className={styles['tennisball']}>
+          <Link to="/" className={styles['tennisball']}>
             <BiTennisBall />
-          </a>
+          </Link>
         </div>
       </header>
     );
@@ -40,13 +41,13 @@ export function Header() {
           >
             <IoClose />
           </li>
-          <li>{!userId ? <a href="/login">Entrar</a> : null}</li>
+          <li>{!userId ? <Link to="/login">Entrar</Link> : null}</li>
 
           <li>
-            <a href="/register">Registro</a>
+            <Link to="/register">Registro</Link>
           </li>
           <li>
-            <a href="">Perfil</a>
+            <Link to="">Perfil</Link>
           </li>
 
           {userId ? (

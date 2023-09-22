@@ -1,5 +1,5 @@
 import { SyntheticEvent, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useUsers } from '../../hooks/use-users';
 import { UserLoginData } from '../../model/user';
 import styles from './login.module.scss';
@@ -58,7 +58,7 @@ export function Login() {
                 ¿Aún no eres usuario?
               </span>
               <span className={styles['registerhere']}>
-                <a href="/register">Registrate aquí</a>
+                <Link to="/register">Registrate aquí</Link>
               </span>
             </div>
             <button className={styles['button-submit']} type="submit">

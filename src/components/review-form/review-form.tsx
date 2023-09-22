@@ -58,6 +58,7 @@ export function ReviewForm() {
                 id="userId"
                 autoComplete="off"
                 required
+                readOnly
               />
             </div>
             <div className={styles['displaynone']}>
@@ -70,6 +71,7 @@ export function ReviewForm() {
                 name="courtId"
                 id="courtId"
                 autoComplete="off"
+                readOnly
                 required
               />
             </div>
