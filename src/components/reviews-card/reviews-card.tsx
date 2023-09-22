@@ -1,4 +1,5 @@
 import { useReviews } from '../../hooks/use-reviews';
+import { useUsers } from '../../hooks/use-users';
 import { Review } from '../../model/review';
 import styles from './reviews-card.module.scss';
 
@@ -8,11 +9,11 @@ type Props = {
 
 export function ReviewCard({ review }: Props) {
   const { deleteReviews } = useReviews();
+
   const onClick = () => {
     deleteReviews(review);
-    console.log(review);
   };
-
+  const { user } = useUsers();
   return (
     <div className={styles['main-div']}>
       <span>
@@ -21,9 +22,11 @@ export function ReviewCard({ review }: Props) {
       <span>Reseña: {review.description}</span>
       <span>Foto:</span>
       <img width="300px" src={review.image.url} />
-      <span role="button" onClick={onClick}>
-        Borrar reseña X
-      </span>
+      {user ? (
+        <span role="button" onClick={onClick}>
+          Borrar reseña X
+        </span>
+      ) : null}
     </div>
   );
 }

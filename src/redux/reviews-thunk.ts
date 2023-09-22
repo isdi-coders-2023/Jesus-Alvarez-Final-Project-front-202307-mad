@@ -29,5 +29,6 @@ export const deleteReviewThunk = createAsyncThunk<
   }
 >('reviews/delete', async ({ repo, review }) => {
   await repo.delete(review.id);
+
   return review.id;
 });

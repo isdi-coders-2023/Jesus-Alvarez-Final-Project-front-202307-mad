@@ -12,7 +12,7 @@ export function useUsers() {
     []
   );
 
-  const { userStatus, registerStatus, token } = useSelector(
+  const { userStatus, registerStatus, token, userId, user } = useSelector(
     (state: RootState) => state.tennisZoneUsers
   );
   const usersDispatch = useDispatch<TennisZoneDispatch>();
@@ -31,5 +31,7 @@ export function useUsers() {
     registerStatus,
     token,
     usersRegister,
+    userId,
+    user,
   };
 }

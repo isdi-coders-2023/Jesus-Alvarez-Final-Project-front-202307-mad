@@ -8,6 +8,7 @@ export type UsersState = {
   userStatus: 'logged' | 'visitor' | 'loading';
   registerStatus: 'registered' | 'error' | '';
   token: string | undefined;
+  userId: string | undefined;
 };
 
 const initialState: UsersState = {
@@ -15,6 +16,7 @@ const initialState: UsersState = {
   token: '',
   userStatus: 'visitor',
   registerStatus: '',
+  userId: '',
 };
 
 const usersSlice = createSlice({
@@ -32,6 +34,7 @@ const usersSlice = createSlice({
     builder.addCase(loginThunk.fulfilled, (state, { payload }) => {
       state.token = payload.token;
       state.user = payload.user;
+      state.userId = payload.user.id;
       state.userStatus = 'logged';
     });
     builder.addCase(createThunk.pending, (state) => {

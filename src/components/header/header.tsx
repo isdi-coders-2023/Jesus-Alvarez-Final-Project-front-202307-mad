@@ -7,12 +7,7 @@ import styles from './header.module.scss';
 
 export function Header() {
   const [menuState, setMenuState] = useState(false);
-  const { userId, usersLogout } = useUsers();
-
-  const handleLogOut = () => {
-    usersLogout();
-    return;
-  };
+  const { userStatus } = useUsers();
 
   if (menuState === false) {
     return (
@@ -41,7 +36,9 @@ export function Header() {
           >
             <IoClose />
           </li>
-          <li>{!userId ? <Link to="/login">Entrar</Link> : null}</li>
+          <li>
+            {userStatus === 'visitor' ? <Link to="/login">Entrar</Link> : null}
+          </li>
 
           <li>
             <Link to="/register">Registro</Link>
@@ -50,9 +47,9 @@ export function Header() {
             <Link to="">Perfil</Link>
           </li>
 
-          {userId ? (
+          {userStatus === 'logged' ? (
             <li>
-              <a onClick={handleLogOut}>Salir</a>
+              <Link to="/">Salir</Link>
             </li>
           ) : null}
         </ul>

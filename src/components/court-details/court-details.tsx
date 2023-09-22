@@ -9,7 +9,7 @@ import styles from './court-details.module.scss';
 
 export function CourtDetails() {
   const { courts } = useCourts();
-  const { userId } = useUsers();
+  const { token } = useUsers();
 
   const { id } = useParams();
 
@@ -32,7 +32,7 @@ export function CourtDetails() {
           <p>Superficie: {court.surface}</p>
         </div>
       </div>
-      {userId ? <ReviewForm></ReviewForm> : null}
+      {token ? <ReviewForm></ReviewForm> : null}
 
       <Reviews></Reviews>
       <Link

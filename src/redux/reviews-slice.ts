@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Review } from '../model/review';
-import { createReviewThunk, getReviewsThunk } from './reviews-thunk';
+import {
+  createReviewThunk,
+  deleteReviewThunk,
+  getReviewsThunk,
+} from './reviews-thunk';
 
 export type ReviewsState = {
   reviews: Review[];
@@ -32,6 +36,12 @@ const reviewsSlice = createSlice({
     });
     builder.addCase(createReviewThunk.fulfilled, (state) => {
       state.reviewsStatus = 'created';
+    });
+    builder.addCase(deleteReviewThunk.pending, (state) => {
+      state.reviewsStatus = 'loading';
+    });
+    builder.addCase(deleteReviewThunk.fulfilled, (state) => {
+      state.reviewsStatus = 'deleted';
     });
   },
 });
