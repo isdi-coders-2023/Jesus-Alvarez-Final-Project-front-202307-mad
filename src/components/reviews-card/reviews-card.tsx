@@ -14,8 +14,7 @@ export function ReviewCard({ review }: Props) {
     deleteReviews(review);
   };
   const { userId } = useUsers();
-  console.log(userId);
-  console.log(review.userId.id);
+
   return (
     <div className={styles['main-div']}>
       <span>

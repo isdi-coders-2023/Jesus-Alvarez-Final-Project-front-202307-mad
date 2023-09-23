@@ -1,4 +1,4 @@
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUsers } from '../../hooks/use-users';
 import styles from './register.module.scss';
@@ -14,12 +14,13 @@ export function Register() {
     const formData = new FormData(formElement);
 
     usersRegister(formData);
-    if (registerStatus === 'registered') {
-      navigate('/login');
-    } else {
-      navigate('/error');
-    }
   };
+
+  useEffect(() => {
+    if (registerStatus === 'loading') return;
+    if (registerStatus === 'registered') navigate('/');
+    if (registerStatus === 'error') navigate('/error');
+  }, [registerStatus, navigate]);
 
   return (
     <>
@@ -79,7 +80,7 @@ export function Register() {
               <label htmlFor="file">File</label>
             </div>
             <div>
-              <input name="imageData" id="file" type="file" />
+              <input name="imageData" id="file" type="file" required />
             </div>
 
             <button className={styles['button-submit']} type="submit">

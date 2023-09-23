@@ -7,7 +7,12 @@ import styles from './header.module.scss';
 
 export function Header() {
   const [menuState, setMenuState] = useState(false);
-  const { userStatus } = useUsers();
+  const { userStatus, usersLogout } = useUsers();
+
+  const handleLogOut = () => {
+    usersLogout();
+    return;
+  };
 
   if (menuState === false) {
     return (
@@ -40,16 +45,22 @@ export function Header() {
             {userStatus === 'visitor' ? <Link to="/login">Entrar</Link> : null}
           </li>
 
-          <li>
-            <Link to="/register">Registro</Link>
-          </li>
-          <li>
-            <Link to="">Perfil</Link>
-          </li>
+          {userStatus === 'logged' ? null : (
+            <li>
+              <Link to="/register">Registro</Link>
+            </li>
+          )}
+          {userStatus === 'logged' ? (
+            <li>
+              <Link to="">Perfil</Link>
+            </li>
+          ) : null}
 
           {userStatus === 'logged' ? (
             <li>
-              <Link to="/">Salir</Link>
+              <Link to="/" onClick={handleLogOut}>
+                Salir
+              </Link>
             </li>
           ) : null}
         </ul>

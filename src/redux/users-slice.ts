@@ -6,7 +6,7 @@ import { createThunk, loginThunk } from './users-thunks';
 export type UsersState = {
   user: User | undefined;
   userStatus: 'logged' | 'visitor' | 'loading';
-  registerStatus: 'registered' | 'error' | '';
+  registerStatus: 'registered' | 'error' | 'loading' | '';
   token: string | undefined;
   userId: string | undefined;
 };
@@ -23,9 +23,12 @@ const usersSlice = createSlice({
   name: 'users',
   initialState: initialState,
   reducers: {
-    // logout: (state) => {
-    //   state.userId = '';
-    // },
+    logout: (state) => {
+      state.user = undefined;
+      state.userStatus = 'visitor';
+      state.token = '';
+      state.userId = '';
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(loginThunk.pending, (state) => {
@@ -37,14 +40,20 @@ const usersSlice = createSlice({
       state.userId = payload.user.id;
       state.userStatus = 'logged';
     });
+    builder.addCase(loginThunk.rejected, (state) => {
+      state.userStatus = 'visitor';
+    });
     builder.addCase(createThunk.pending, (state) => {
-      state.registerStatus = '';
+      state.registerStatus = 'loading';
     });
     builder.addCase(createThunk.fulfilled, (state) => {
       state.registerStatus = 'registered';
     });
+    builder.addCase(createThunk.rejected, (state) => {
+      state.registerStatus = 'error';
+    });
   },
 });
 
-export const actions = usersSlice.actions;
+export const { logout } = usersSlice.actions;
 export default usersSlice.reducer;
