@@ -13,7 +13,9 @@ export function ReviewCard({ review }: Props) {
   const onClick = () => {
     deleteReviews(review);
   };
-  const { user } = useUsers();
+  const { userId } = useUsers();
+  console.log(userId);
+  console.log(review.userId.id);
   return (
     <div className={styles['main-div']}>
       <span>
@@ -22,7 +24,7 @@ export function ReviewCard({ review }: Props) {
       <span>Reseña: {review.description}</span>
       <span>Foto:</span>
       <img width="300px" src={review.image.url} />
-      {user ? (
+      {userId === review.userId.id ? (
         <span role="button" onClick={onClick}>
           Borrar reseña X
         </span>
