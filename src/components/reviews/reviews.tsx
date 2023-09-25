@@ -21,10 +21,8 @@ export function Reviews() {
     (review) => review.courtId === specificCourt.id
   );
 
-  console.log(specificCourt);
-  console.log(courtReviews);
   return (
-    <div className={styles['reviewdiv']}>
+    <div role="list" className={styles['reviewdiv']}>
       {courtReviews.map((item: Review, index: number) => (
         <ReviewCard key={index} review={item} />
       ))}

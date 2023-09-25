@@ -23,7 +23,11 @@ export function ReviewCard({ review }: Props) {
       </span>
       <span>Reseña: {review.description}</span>
       <span>Foto:</span>
-      <img width="300px" src={review.image.url} />
+      <img
+        width="300px"
+        src={review.image.url}
+        alt="The image of the review."
+      />
       {userId === review.userId.id ? (
         <>
           <span role="button" onClick={onClick}>
@@ -31,7 +35,9 @@ export function ReviewCard({ review }: Props) {
           </span>
 
           <Link to={'/reviewedit'}>
-            <span onClick={() => getByIdReview(review)}>Edit</span>
+            <span role="button" onClick={() => getByIdReview(review)}>
+              Edit
+            </span>
           </Link>
         </>
       ) : null}
