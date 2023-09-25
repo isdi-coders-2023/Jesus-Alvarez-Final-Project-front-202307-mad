@@ -3,17 +3,20 @@ import { Review } from '../model/review';
 import {
   createReviewThunk,
   deleteReviewThunk,
+  getByIdReviewThunk,
   getReviewsThunk,
 } from './reviews-thunk';
 
 export type ReviewsState = {
   reviews: Review[];
   reviewsStatus: '' | 'loading' | 'loaded' | 'deleted' | 'created';
+  searchedReview: Review | null;
 };
 
 const initialState: ReviewsState = {
   reviews: [],
   reviewsStatus: '',
+  searchedReview: null,
 };
 
 const reviewsSlice = createSlice({
@@ -43,6 +46,15 @@ const reviewsSlice = createSlice({
     builder.addCase(deleteReviewThunk.fulfilled, (state) => {
       state.reviewsStatus = 'deleted';
     });
+    builder.addCase(getByIdReviewThunk.pending, (state) => {
+      state.searchedReview = null;
+    });
+    builder.addCase(
+      getByIdReviewThunk.fulfilled,
+      (state, { payload }: { payload: Review }) => {
+        state.searchedReview = payload;
+      }
+    );
   },
 });
 

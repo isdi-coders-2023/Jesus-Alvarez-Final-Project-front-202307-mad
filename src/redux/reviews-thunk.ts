@@ -32,3 +32,27 @@ export const deleteReviewThunk = createAsyncThunk<
 
   return review.id;
 });
+
+export const getByIdReviewThunk = createAsyncThunk<
+  Review,
+  {
+    repo: ApiReviewRepository;
+    review: Review;
+  }
+>('reviews/getById', async ({ repo, review }) => {
+  const getReview = await repo.getById(review.id);
+
+  return getReview;
+});
+
+export const updateReviewThunk = createAsyncThunk<
+  Review,
+  {
+    repo: ApiReviewRepository;
+    data: FormData;
+    reviewId: string;
+  }
+>('reviews/update', async ({ repo, data, reviewId }) => {
+  const updatedReview = await repo.updateReview(reviewId, data);
+  return updatedReview;
+});

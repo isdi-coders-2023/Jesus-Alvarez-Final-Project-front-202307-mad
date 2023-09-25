@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useReviews } from '../../hooks/use-reviews';
 import { useUsers } from '../../hooks/use-users';
 import { Review } from '../../model/review';
@@ -8,7 +9,7 @@ type Props = {
 };
 
 export function ReviewCard({ review }: Props) {
-  const { deleteReviews } = useReviews();
+  const { deleteReviews, getByIdReview } = useReviews();
 
   const onClick = () => {
     deleteReviews(review);
@@ -24,9 +25,15 @@ export function ReviewCard({ review }: Props) {
       <span>Foto:</span>
       <img width="300px" src={review.image.url} />
       {userId === review.userId.id ? (
-        <span role="button" onClick={onClick}>
-          Borrar reseña X
-        </span>
+        <>
+          <span role="button" onClick={onClick}>
+            Borrar reseña X
+          </span>
+
+          <Link to={'/reviewedit'}>
+            <span onClick={() => getByIdReview(review)}>Edit</span>
+          </Link>
+        </>
       ) : null}
     </div>
   );

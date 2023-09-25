@@ -4,7 +4,7 @@ import { User } from './user';
 
 export type ReviewNoId = {
   userId: User;
-  courtId: Court;
+  courtId: Court['id'];
   description: string;
   date: Date;
   image: ImageData;

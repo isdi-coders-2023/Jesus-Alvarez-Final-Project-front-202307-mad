@@ -4,7 +4,9 @@ import { Review } from '../model/review';
 import {
   createReviewThunk,
   deleteReviewThunk,
+  getByIdReviewThunk,
   getReviewsThunk,
+  updateReviewThunk,
 } from '../redux/reviews-thunk';
 import { ApiReviewRepository } from '../services/reviews-repository';
 import { RootState, TennisZoneDispatch } from '../store/store';
@@ -15,7 +17,7 @@ export function useReviews() {
     []
   );
 
-  const reviewsState = useSelector(
+  const { searchedReview, reviews } = useSelector(
     (state: RootState) => state.tennisZoneReviews
   );
   const reviewsDispatch = useDispatch<TennisZoneDispatch>();
@@ -32,10 +34,21 @@ export function useReviews() {
     reviewsDispatch(deleteReviewThunk({ repo, review }));
   };
 
+  const getByIdReview = async (review: Review) => {
+    reviewsDispatch(getByIdReviewThunk({ repo, review }));
+  };
+
+  const updateReview = async (reviewId: string, data: FormData) => {
+    reviewsDispatch(updateReviewThunk({ repo, data, reviewId }));
+  };
+
   return {
     getReviews,
-    reviewsState,
+    searchedReview,
     createReviews,
     deleteReviews,
+    getByIdReview,
+    reviews,
+    updateReview,
   };
 }

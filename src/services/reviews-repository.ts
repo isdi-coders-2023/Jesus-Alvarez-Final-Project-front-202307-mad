@@ -11,6 +11,22 @@ export class ApiReviewRepository {
     const data = await request.json();
     return data;
   }
+
+  async getById(id: string): Promise<Review> {
+    const review = await fetch(`${this.urlBase}/${id}`);
+    const data = await review.json();
+    return data;
+  }
+
+  async updateReview(id: string, data: FormData): Promise<Review> {
+    const reviewToUpdate = await fetch(`${this.urlBase}/${id}`, {
+      method: 'PATCH',
+      body: data,
+    });
+    const updatedReview = await reviewToUpdate.json();
+    return updatedReview;
+  }
+
   async create(item: FormData): Promise<Review> {
     const response = await fetch(`${this.urlBase}/register`, {
       method: 'POST',
