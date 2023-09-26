@@ -1,4 +1,4 @@
-import { User, UserLoginData } from '../model/user';
+import { Payload, User, UserLoginData } from '../model/user';
 
 export class ApiUserRepository {
   urlBase: string;
@@ -18,7 +18,7 @@ export class ApiUserRepository {
     return data;
   }
 
-  async login(user: UserLoginData): Promise<User> {
+  async login(user: UserLoginData): Promise<Payload> {
     const response = await fetch(`${this.urlBase}/login`, {
       method: 'PATCH',
       body: JSON.stringify(user),

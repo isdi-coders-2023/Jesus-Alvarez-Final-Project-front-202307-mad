@@ -1,10 +1,10 @@
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUsers } from '../../hooks/use-users';
 import styles from './register.module.scss';
 
 export function Register() {
-  const { usersRegister, usersState } = useUsers();
+  const { usersRegister, registerStatus } = useUsers();
   const navigate = useNavigate();
 
   const handleSubmit = (ev: SyntheticEvent) => {
@@ -14,12 +14,13 @@ export function Register() {
     const formData = new FormData(formElement);
 
     usersRegister(formData);
-    if (usersState.registerStatus === 'registered') {
-      navigate('/login');
-    } else {
-      navigate('/error');
-    }
   };
+
+  useEffect(() => {
+    if (registerStatus === 'loading') return;
+    if (registerStatus === 'registered') navigate('/');
+    if (registerStatus === 'error') navigate('/error');
+  }, [registerStatus, navigate]);
 
   return (
     <>
@@ -75,16 +76,22 @@ export function Register() {
                 required
               />
             </div>
-            <div>
+            <div className={styles['file-input']}>
               <label htmlFor="file">File</label>
-            </div>
-            <div>
-              <input name="imageData" id="file" type="file" />
+              <input
+                className={styles['file']}
+                name="imageData"
+                id="file"
+                type="file"
+                required
+              />
             </div>
 
-            <button className={styles['button-submit']} type="submit">
-              Registrarse
-            </button>
+            <div className={styles['button-div']}>
+              <button className={styles['button-submit']} type="submit">
+                Registrarse
+              </button>
+            </div>
           </div>
         </form>
       </div>

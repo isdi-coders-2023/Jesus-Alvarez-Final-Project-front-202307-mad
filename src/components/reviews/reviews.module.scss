@@ -1,0 +1,13 @@
+.reviewdiv {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+}
+
+.reviewpic {
+  border-radius: 3rem;
+  float: left;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}

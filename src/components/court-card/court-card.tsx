@@ -16,7 +16,7 @@ export function CourtCard({ court }: Props) {
           alt="A court picture."
           width="300px"
         />
-        <div>
+        <div className={styles['courtname-container']}>
           <p className={styles['courtname']}>{court.name}</p>
         </div>
       </Link>

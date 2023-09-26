@@ -3,11 +3,13 @@ import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import { useCourts } from '../../hooks/use-courts';
+import { useUsers } from '../../hooks/use-users';
 import { Court } from '../../model/court';
 import { tennisZoneStore } from '../../store/store';
-import { CourtReviews } from './court-reviews';
+import { CourtDetails } from './court-details';
 
 jest.mock('../../hooks/use-courts');
+jest.mock('../../hooks/use-users');
 
 describe('Given the component court-reviews', () => {
   describe('When it is rendered', () => {
@@ -34,7 +36,11 @@ describe('Given the component court-reviews', () => {
     });
 
     (useCourts as jest.Mock).mockReturnValue({
-      courtsState: { courts: mockCourt },
+      courts: mockCourt,
+    });
+
+    (useUsers as jest.Mock).mockReturnValue({
+      token: 'mockToken',
     });
 
     beforeEach(() => {
@@ -47,7 +53,7 @@ describe('Given the component court-reviews', () => {
       render(
         <MemoryRouter>
           <Provider store={tennisZoneStore}>
-            <CourtReviews></CourtReviews>
+            <CourtDetails></CourtDetails>
           </Provider>
         </MemoryRouter>
       );

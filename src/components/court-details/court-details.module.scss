@@ -1,0 +1,65 @@
+.main-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 4rem;
+  gap: 1rem;
+  .info-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+
+    .text-div {
+      display: flex;
+      flex-direction: colummn;
+    }
+  }
+}
+
+span {
+  align-self: baseline;
+  color: black;
+  font-weight: 500;
+}
+
+.courtpicture {
+  border-radius: 3rem;
+  float: left;
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+}
+
+p {
+  color: #3c638e;
+  font-weight: 900;
+}
+
+.button {
+  font-size: 1.3rem;
+  background-color: #3c638e;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  align-self: center;
+  margin-bottom: 1rem;
+  border: 1px solid #3c638e;
+  padding: 0.5rem 2rem;
+  width: 8rem;
+}
+
+.title {
+  margin: 0;
+  padding: 0 2rem 0rem 2rem;
+  color: #3c638e;
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 900;
+  text-align: center;
+}
+
+.button-div {
+  height: 5rem;
+}

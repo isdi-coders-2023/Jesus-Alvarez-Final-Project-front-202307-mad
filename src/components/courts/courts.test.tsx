@@ -6,15 +6,19 @@ import { useCourts } from '../../hooks/use-courts';
 import { tennisZoneStore } from '../../store/store';
 import { Courts } from './courts';
 
-jest.mock('../court-card/court-card');
 jest.mock('../../hooks/use-courts');
+
+jest.mock('../court-card/court-card', () => {
+  return {
+    CourtCard: jest.fn(() => <div>CourtCard mock</div>),
+  };
+});
 
 describe('Given the component Courts', () => {
   describe('When it is rendered', () => {
     (useCourts as jest.Mock).mockReturnValue({
-      courtsState: {
-        courts: [],
-      },
+      courts: [{}, {}],
+
       getCourts: jest.fn(),
     });
 

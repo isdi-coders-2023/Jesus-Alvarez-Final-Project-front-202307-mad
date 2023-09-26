@@ -17,7 +17,7 @@ describe('Given the thunks created', () => {
     });
     test('Then, the loginThunk should call the repo', () => {
       const mockRepo = {
-        login: jest.fn().mockResolvedValue({}),
+        login: jest.fn().mockResolvedValue({ token: '', user: {} }),
       } as unknown as ApiUserRepository;
       const mockUser = {
         email: '',

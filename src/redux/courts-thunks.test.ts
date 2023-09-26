@@ -1,6 +1,6 @@
 import { ApiCourtRepository } from '../services/court-repository';
 import { tennisZoneStore } from '../store/store';
-import { getCourtsThunk } from './courts-thunk';
+import { getCourtsThunk } from './courts-thunks';
 
 describe('Given the getCourtsThunk', () => {
   describe('When we use it', () => {

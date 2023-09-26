@@ -1,8 +1,9 @@
 import { Court } from './court';
+import { ImageData } from './image';
 import { User } from './user';
 
 export type ReviewNoId = {
-  userId: User['id'];
+  userId: User;
   courtId: Court['id'];
   description: string;
   date: Date;
