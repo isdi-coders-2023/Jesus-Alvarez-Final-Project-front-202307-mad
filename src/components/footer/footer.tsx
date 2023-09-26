@@ -15,7 +15,7 @@ export function Footer() {
   };
 
   return (
-    <footer role="footer">
+    <footer role="navigation">
       <div className={styles['menu']}>
         <div className={styles['icons']}>
           {userStatus === 'visitor' ? null : (
@@ -28,14 +28,14 @@ export function Footer() {
 
           <Link to={'/'}>
             <span role="link" className={styles['home']}>
-              <BiTennisBall />
+              <BiTennisBall aria-label="Home button" role="button" />
             </span>
           </Link>
 
           {userStatus === 'visitor' ? null : (
             <Link to={'/profile'}>
               <span role="button" className={styles['logout']}>
-                <RxPerson aria-label="Login button" />
+                <RxPerson aria-label="Profile button" />
               </span>
             </Link>
           )}
@@ -43,7 +43,7 @@ export function Footer() {
           {userStatus === 'visitor' ? (
             <Link to="/login">
               <span role="link" className={styles['login']}>
-                <BsFillPersonFill />
+                <BsFillPersonFill role="button" aria-label="Login button" />
               </span>
             </Link>
           ) : null}

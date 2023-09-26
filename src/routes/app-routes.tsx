@@ -25,7 +25,6 @@ export const AppRouter = () => {
           path="/courts/:id"
           element={<CourtDetails></CourtDetails>}
         ></Route>
-        {/* <Route path="/review" element={<ReviewForm></ReviewForm>}></Route> */}
         <Route
           path="/reviewedit/"
           element={<EditReviewPage></EditReviewPage>}
