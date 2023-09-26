@@ -2,7 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { CourtDetails } from '../components/court-details/court-details';
-import { EditReviewPage } from '../pages/edit-review/edit-review';
+import { EditReviewPage } from '../pages/edit-review/edit-review-page';
 import HomePage from '../pages/home/home-page';
 import ProfilePage from '../pages/profile/profile-page';
 
