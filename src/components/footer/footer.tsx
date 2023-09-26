@@ -21,13 +21,13 @@ export function Footer() {
           {userStatus === 'visitor' ? null : (
             <Link to={'/'} onClick={handleLogOut}>
               <span className={styles['logout']}>
-                <TbLogout2 />
+                <TbLogout2 aria-label="Logout button" />
               </span>
             </Link>
           )}
 
           <Link to={'/'}>
-            <span className={styles['home']}>
+            <span role="link" className={styles['home']}>
               <BiTennisBall />
             </span>
           </Link>
@@ -35,14 +35,14 @@ export function Footer() {
           {userStatus === 'visitor' ? null : (
             <Link to={'/profile'}>
               <span role="button" className={styles['logout']}>
-                <RxPerson />
+                <RxPerson aria-label="Login button" />
               </span>
             </Link>
           )}
 
           {userStatus === 'visitor' ? (
             <Link to="/login">
-              <span className={styles['login']}>
+              <span role="link" className={styles['login']}>
                 <BsFillPersonFill />
               </span>
             </Link>
