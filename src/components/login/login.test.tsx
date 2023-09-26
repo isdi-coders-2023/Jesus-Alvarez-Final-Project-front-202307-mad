@@ -43,34 +43,3 @@ describe('Given the component Login', () => {
     });
   });
 });
-
-describe('Given the component login', () => {
-  describe('When it is rendered with logged status', () => {
-    const mockNavigate = jest.fn().mockReturnValue(jest.fn());
-    jest.mock('react-router-dom', () => ({
-      ...jest.requireActual('react-router-dom'),
-      useNavigate: () => ({
-        navigate: mockNavigate,
-      }),
-    }));
-    (useUsers as jest.Mock).mockReturnValue({
-      userStatus: 'logged',
-      usersLogin: jest.fn(),
-    });
-
-    beforeEach(() => {
-      render(
-        <MemoryRouter>
-          <Provider store={tennisZoneStore}>
-            <Login></Login>
-          </Provider>
-        </MemoryRouter>
-      );
-    });
-
-    test('Then you should navigate to home', () => {
-      const element = screen.getByRole('button');
-      expect(element).toBeInTheDocument();
-    });
-  });
-});

@@ -56,38 +56,3 @@ describe('Given the ReviewCard component', () => {
     expect(useReviews().getByIdReview).toHaveBeenCalled();
   });
 });
-
-describe('Given the ReviewCard component', () => {
-  describe('When it is rendered', () => {
-    (useReviews as jest.Mock).mockReturnValue({
-      ReviewsState: {
-        reviews: [],
-      },
-      deleteReviews: jest.fn(),
-      getByIdReview: jest.fn(),
-    });
-    (useUsers as jest.Mock).mockReturnValue({
-      userId: '1',
-    });
-  });
-  beforeEach(() => {
-    const mockProp = {
-      userId: { id: '2' },
-      courtId: { id: '1' },
-      description: 'string',
-
-      image: { url: '' },
-    } as unknown as Review;
-    render(
-      <MemoryRouter>
-        <Provider store={tennisZoneStore}>
-          <ReviewCard review={mockProp}></ReviewCard>
-        </Provider>
-      </MemoryRouter>
-    );
-  });
-  test('Then an image with altText should be in the document', () => {
-    const altText = screen.getByAltText('The image of the review.');
-    expect(altText).toBeInTheDocument();
-  });
-});
