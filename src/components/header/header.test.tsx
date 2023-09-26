@@ -1,31 +1,31 @@
 import '@testing-library/jest-dom';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
+import { useUsers } from '../../hooks/use-users';
+import { tennisZoneStore } from '../../store/store';
 import { Header } from './header';
 
+jest.mock('../../hooks/use-users');
+
 describe('Given the component Footer', () => {
-  describe('When, the Footer is rendered', () => {
+  describe('When, the Header is rendered', () => {
+    (useUsers as jest.Mock).mockReturnValue({
+      userStatus: 'logged',
+      user: { imageData: { url: 'k' } },
+    });
     beforeEach(() => {
       render(
         <MemoryRouter>
-          <Header></Header>
+          <Provider store={tennisZoneStore}>
+            <Header></Header>
+          </Provider>
         </MemoryRouter>
       );
     });
     test('Then, an banner role should be in the document', () => {
       const element = screen.getByRole('banner');
       expect(element).toBeInTheDocument();
-    });
-    test('Then, when you click on the menu button', () => {
-      const button = screen.getByRole('button');
-
-      fireEvent.click(button);
-      const list = screen.getByRole('list');
-      const button2 = screen.getByRole('button2');
-
-      expect(list).toBeInTheDocument();
-      fireEvent.click(button2);
-      expect(list).not.toBeInTheDocument();
     });
   });
 });

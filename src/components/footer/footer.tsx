@@ -15,8 +15,7 @@ export function Footer() {
   };
 
   return (
-    <footer>
-      {' '}
+    <footer role="footer">
       <div className={styles['menu']}>
         <div className={styles['icons']}>
           {userStatus === 'visitor' ? null : (
@@ -35,7 +34,7 @@ export function Footer() {
 
           {userStatus === 'visitor' ? null : (
             <Link to={'/profile'}>
-              <span className={styles['logout']}>
+              <span role="button" className={styles['logout']}>
                 <RxPerson />
               </span>
             </Link>

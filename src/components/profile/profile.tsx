@@ -7,9 +7,8 @@ import styles from './profile.module.scss';
 export function Profile() {
   const { user } = useUsers();
   const { reviews } = useReviews();
-  console.log(reviews);
+
   const userReviews = reviews.filter((item) => item.userId.id === user?.id);
-  console.log(userReviews);
 
   return (
     <div className={styles['profile-main']}>
