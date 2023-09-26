@@ -38,10 +38,6 @@ describe('Given the component ReviewForm', () => {
       </MemoryRouter>
     );
 
-    // test('Then a button should be in the document', () => {
-    //   const button = screen.getByRole('button');
-    //   expect(button).toBeInTheDocument();
-    // });
     test('Then when we click on the submit button', async () => {
       const formElement = screen.getByRole('form');
 
