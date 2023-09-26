@@ -1,0 +1,68 @@
+.file {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+.main-page {
+  margin-top: 4rem;
+  color: #3c638e;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.file-input label {
+  display: block;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 25px;
+  background: #3c638e;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+}
+
+.text-area {
+  width: 17rem;
+  height: 5rem;
+  font-size: 1rem;
+  font-family: 'Libre Franklin', sans-serif;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.button-submit1 {
+  font-size: 1rem;
+  background-color: #3c638e;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-left: 4rem;
+  border: 1px solid #3c638e;
+  padding: 0.5rem 0.5rem;
+  width: 5rem;
+}
+
+.button-submit {
+  font-size: 1rem;
+  background-color: #3c638e;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  align-self: center;
+  margin-bottom: 1rem;
+  border: 1px solid #3c638e;
+  padding: 0.5rem 0.5rem;
+  width: 5rem;
+}

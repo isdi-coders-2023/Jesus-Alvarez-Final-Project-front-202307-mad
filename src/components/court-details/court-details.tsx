@@ -17,7 +17,7 @@ export function CourtDetails() {
 
   return (
     <div className={styles['main-div']}>
-      <h2>Pistas</h2>
+      <h2 className={styles['title']}>Pistas</h2>
 
       <div className={styles['info-div']}>
         <img
@@ -35,14 +35,16 @@ export function CourtDetails() {
       {token ? <ReviewForm></ReviewForm> : null}
 
       <Reviews></Reviews>
-      <Link
-        className={styles['button']}
-        role="button"
-        id="backbutton"
-        to={'/courts'}
-      >
-        Atrás
-      </Link>
+      <div className={styles['button-div']}>
+        <Link
+          className={styles['button']}
+          role="button"
+          id="backbutton"
+          to={'/courts'}
+        >
+          Atras
+        </Link>
+      </div>
     </div>
   );
 }

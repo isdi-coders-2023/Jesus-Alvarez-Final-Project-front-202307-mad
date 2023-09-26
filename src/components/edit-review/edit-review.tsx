@@ -1,12 +1,13 @@
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useReviews } from '../../hooks/use-reviews';
 import styles from './edit-review.module.scss';
 
 export function EditReview() {
-  const { searchedReview, updateReview } = useReviews();
+  const { searchedReview, updateReview, reviewsStatus } = useReviews();
   const review = searchedReview;
   const reviewId = review?.id;
-  console.log(review);
+  const navigate = useNavigate();
   const handleSubmit = (ev: SyntheticEvent) => {
     ev.preventDefault();
 
@@ -16,6 +17,11 @@ export function EditReview() {
     updateReview(reviewId!, formData);
   };
 
+  useEffect(() => {
+    if (reviewsStatus === 'loading') return;
+    if (reviewsStatus === 'updated') navigate('/courts');
+    if (reviewsStatus === 'error') navigate('/error');
+  }, [reviewsStatus, navigate]);
   return (
     <>
       <div className={styles['main-page']}>
@@ -31,20 +37,32 @@ export function EditReview() {
                 autoComplete="on"
                 defaultValue={searchedReview?.description}
                 required
+                className={styles['text-area']}
               />
             </div>
-            <div>
+            <div className={styles['file-input']}>
               <label htmlFor="file">File</label>
-            </div>
-            <div>
-              <input name="image" id="file" type="file" />
+              <input
+                className={styles['file']}
+                name="image"
+                id="file"
+                type="file"
+              />
             </div>
           </div>
 
-          <button className={styles['button-submit']} type="submit">
+          <button className={styles['button-submit1']} type="submit">
             Enviar
           </button>
         </form>
+        <Link
+          className={styles['button-submit']}
+          role="button"
+          id="backbutton"
+          to={'/courts'}
+        >
+          Atras
+        </Link>
       </div>
     </>
   );

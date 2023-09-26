@@ -1,3 +1,5 @@
+import { BsTrash } from 'react-icons/bs';
+import { FiEdit2 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useReviews } from '../../hooks/use-reviews';
 import { useUsers } from '../../hooks/use-users';
@@ -24,21 +26,27 @@ export function ReviewCard({ review }: Props) {
       <span>Reseña: {review.description}</span>
       <span>Foto:</span>
       <img
-        width="300px"
+        className={styles['reviewpic']}
+        width="250px"
         src={review.image.url}
         alt="The image of the review."
       />
       {userId === review.userId.id ? (
         <>
-          <span role="button" onClick={onClick}>
-            Borrar reseña X
-          </span>
-
-          <Link to={'/reviewedit'}>
-            <span role="button" onClick={() => getByIdReview(review)}>
-              Edit
+          <div className={styles['icons-div']}>
+            <span className={styles['trash']} role="button" onClick={onClick}>
+              <BsTrash />
             </span>
-          </Link>
+            <Link to={'/reviewedit'}>
+              <span
+                className={styles['trash']}
+                role="button"
+                onClick={() => getByIdReview(review)}
+              >
+                <FiEdit2 />
+              </span>
+            </Link>
+          </div>
         </>
       ) : null}
     </div>

@@ -5,14 +5,13 @@ import { AppRouter } from './routes/app-routes';
 
 function App() {
   return (
-    <div>
+    <>
       <Header></Header>
-      <div className={styles['main-div']}>
+      <div className={styles['main-app-div']}>
         <AppRouter></AppRouter>
       </div>
-
       <Footer></Footer>
-    </div>
+    </>
   );
 }
 

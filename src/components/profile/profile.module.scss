@@ -1,0 +1,34 @@
+.profile-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1.5rem;
+  .profile-picture-div {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .profile-picture {
+      border-radius: 50%;
+      float: left;
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+    }
+  }
+}
+
+.user-name {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.review-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem;
+  margin-bottom: 5rem;
+}

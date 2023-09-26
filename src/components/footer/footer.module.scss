@@ -1,8 +1,39 @@
-footer {
-  background-color: #489d82;
-
-  padding: 1rem;
+.menu {
+  background-color: #3c638e;
+  border-radius: 1.5rem 1.5rem 0rem 0rem;
+  padding: 0.75rem;
   border: 0;
+}
+
+span {
+  color: white;
+  text-decoration: none;
+}
+
+.home {
+  align-self: center;
+  color: white;
+}
+
+.home:hover {
+  color: #c4d522;
+}
+
+.login {
+  color: white;
+}
+
+.logout {
+  color: white;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
 }
 
 //   bottom: 0;

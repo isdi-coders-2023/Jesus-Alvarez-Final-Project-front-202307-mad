@@ -12,7 +12,7 @@ export function Courts() {
   }, [getCourts]);
 
   return (
-    <div>
+    <div className={styles['main-court-div']}>
       <h2 className={styles['title']}>Pistas</h2>
       <ul className={styles['ul-courts']}>
         {courts.map((item: court, index: number) => (

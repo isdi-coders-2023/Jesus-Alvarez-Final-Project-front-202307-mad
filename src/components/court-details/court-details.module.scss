@@ -24,7 +24,7 @@ span {
   font-weight: 500;
 }
 
-img {
+.courtpicture {
   border-radius: 3rem;
   float: left;
   width: 350px;
@@ -42,10 +42,24 @@ p {
   background-color: #3c638e;
   color: white;
   border-radius: 25px;
-
+  cursor: pointer;
   align-self: center;
   margin-bottom: 1rem;
   border: 1px solid #3c638e;
   padding: 0.5rem 2rem;
   width: 8rem;
+}
+
+.title {
+  margin: 0;
+  padding: 0 2rem 0rem 2rem;
+  color: #3c638e;
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 900;
+  text-align: center;
+}
+
+.button-div {
+  height: 5rem;
 }

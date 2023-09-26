@@ -10,7 +10,7 @@ export type UserNoId = UserLoginData & {
   firstName: string;
   lastName: string;
   imageData: ImageData;
-  reviews: Review;
+  reviews: Review[];
   status?: string;
 };
 

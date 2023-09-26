@@ -25,7 +25,11 @@ export function ReviewForm() {
   return (
     <>
       <div className={styles['main-page']}>
-        <form onSubmit={handleSubmit} role="form">
+        <form
+          className={styles['main-page-form']}
+          onSubmit={handleSubmit}
+          role="form"
+        >
           <div className={styles['form-2']}>
             <h3>¿Jugaste aquí?</h3>
             <h3>Deja una reseña</h3>
@@ -34,19 +38,23 @@ export function ReviewForm() {
             </div>
             <div>
               <textarea
+                className={styles['text-area']}
                 name="description"
                 id="description"
                 autoComplete="off"
                 required
               />
             </div>
-            <div>
+            <div className={styles['file-input']}>
               <label htmlFor="file">File</label>
+              <input
+                className={styles['file']}
+                name="image"
+                id="file"
+                type="file"
+              />
             </div>
-            <div>
-              <input name="image" id="file" type="file" />
-            </div>
-            <div></div>
+
             <div className={styles['displaynone']}>
               <label htmlFor="userId">userId</label>
             </div>

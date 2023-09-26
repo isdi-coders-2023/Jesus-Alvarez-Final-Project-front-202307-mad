@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { CourtDetails } from '../components/court-details/court-details';
 import { EditReviewPage } from '../pages/edit-review/edit-review';
 import HomePage from '../pages/home/home-page';
+import ProfilePage from '../pages/profile/profile-page';
 
 const LoginPage = lazy(() => import('../pages/login/login-page'));
 const RegisterPage = lazy(() => import('../pages/register/register-page'));
@@ -19,6 +20,7 @@ export const AppRouter = () => {
         <Route path="/register" element={<RegisterPage></RegisterPage>}></Route>
         <Route path="/error" element={<ErrorPage></ErrorPage>}></Route>
         <Route path="/courts" element={<CourtsPage></CourtsPage>}></Route>
+        <Route path="/profile" element={<ProfilePage></ProfilePage>}></Route>
         <Route
           path="/courts/:id"
           element={<CourtDetails></CourtDetails>}

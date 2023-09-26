@@ -17,7 +17,7 @@ export function useReviews() {
     []
   );
 
-  const { searchedReview, reviews } = useSelector(
+  const { searchedReview, reviews, reviewsStatus } = useSelector(
     (state: RootState) => state.tennisZoneReviews
   );
   const reviewsDispatch = useDispatch<TennisZoneDispatch>();
@@ -50,5 +50,6 @@ export function useReviews() {
     getByIdReview,
     reviews,
     updateReview,
+    reviewsStatus,
   };
 }

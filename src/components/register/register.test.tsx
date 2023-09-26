@@ -10,6 +10,13 @@ jest.mock('../../hooks/use-users');
 
 describe('Given the component Register', () => {
   describe('When it is rendered', () => {
+    const mockNavigate = jest.fn();
+    jest.mock('react-router-dom', () => ({
+      ...jest.requireActual('react-router-dom'),
+      useNavigate: () => ({
+        navigate: mockNavigate,
+      }),
+    }));
     const changedState = {
       registerStatus: 'registered',
     };

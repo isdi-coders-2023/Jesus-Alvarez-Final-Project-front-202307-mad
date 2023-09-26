@@ -76,16 +76,22 @@ export function Register() {
                 required
               />
             </div>
-            <div>
+            <div className={styles['file-input']}>
               <label htmlFor="file">File</label>
-            </div>
-            <div>
-              <input name="imageData" id="file" type="file" required />
+              <input
+                className={styles['file']}
+                name="imageData"
+                id="file"
+                type="file"
+                required
+              />
             </div>
 
-            <button className={styles['button-submit']} type="submit">
-              Registrarse
-            </button>
+            <div className={styles['button-div']}>
+              <button className={styles['button-submit']} type="submit">
+                Registrarse
+              </button>
+            </div>
           </div>
         </form>
       </div>
