@@ -17,9 +17,8 @@ jest.mock('../court-card/court-card', () => {
 describe('Given the component Courts', () => {
   describe('When it is rendered', () => {
     (useCourts as jest.Mock).mockReturnValue({
-      courtsState: {
-        courts: [{}, {}],
-      },
+      courts: [{}, {}],
+
       getCourts: jest.fn(),
     });
 
