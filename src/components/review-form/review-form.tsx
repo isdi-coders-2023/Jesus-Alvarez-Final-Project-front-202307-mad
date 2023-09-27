@@ -1,5 +1,6 @@
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { useCourts } from '../../hooks/use-courts';
 import { useReviews } from '../../hooks/use-reviews';
 import { useUsers } from '../../hooks/use-users';
@@ -9,7 +10,7 @@ import styles from './review-form.module.scss';
 export function ReviewForm() {
   const { userId } = useUsers();
   const { courts } = useCourts();
-  const { createReviews } = useReviews();
+  const { createReviews, reviewsStatus, reviewsStateReset } = useReviews();
 
   const { id } = useParams();
   const court = courts.find((court) => court.id === id) as Court;
@@ -22,6 +23,40 @@ export function ReviewForm() {
     createReviews(formData);
   };
 
+  useEffect(() => {
+    if (reviewsStatus === '') return;
+    if (reviewsStatus === 'created') {
+      Swal.fire({
+        width: '20rem',
+
+        title: '',
+        text: '¡Gracias por tu reseña!',
+        background: 'white',
+        color: '3c638e',
+        iconColor: 'green',
+        showConfirmButton: false,
+        padding: '2rem 0',
+        timer: 2000,
+      });
+      setTimeout(() => {
+        reviewsStateReset();
+      }, 3000);
+    }
+    if (reviewsStatus === 'error') {
+      Swal.fire({
+        width: '20rem',
+
+        text: '¡Error al dejar la reseña!',
+        background: 'white',
+        color: '#EA4335',
+
+        showConfirmButton: false,
+        padding: '2rem 0',
+        timer: 2000,
+      });
+    }
+  }, [reviewsStateReset, reviewsStatus]);
+
   return (
     <>
       <div className={styles['main-page']}>
@@ -31,8 +66,8 @@ export function ReviewForm() {
           role="form"
         >
           <div className={styles['form-2']}>
-            <h3>¿Jugaste aquí?</h3>
-            <h3>Deja una reseña</h3>
+            <h3 className={styles['h3']}>¿Jugaste aquí?</h3>
+            <h3 className={styles['h3']}>Deja una reseña</h3>
             <div>
               <label htmlFor="description"></label>
             </div>

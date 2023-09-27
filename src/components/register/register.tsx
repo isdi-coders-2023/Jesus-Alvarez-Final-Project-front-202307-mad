@@ -1,5 +1,6 @@
 import { SyntheticEvent, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { useUsers } from '../../hooks/use-users';
 import styles from './register.module.scss';
 
@@ -18,7 +19,16 @@ export function Register() {
 
   useEffect(() => {
     if (registerStatus === 'loading') return;
-    if (registerStatus === 'registered') navigate('/');
+    if (registerStatus === 'registered') {
+      Swal.fire({
+        title: 'Registro Exitoso!',
+        width: '20rem',
+        padding: '2rem 0',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate('/login');
+    }
     if (registerStatus === 'error') navigate('/error');
   }, [registerStatus, navigate]);
 

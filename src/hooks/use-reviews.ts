@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Review } from '../model/review';
+import { reset } from '../redux/reviews-slice';
 import {
   createReviewThunk,
   deleteReviewThunk,
@@ -42,6 +43,11 @@ export function useReviews() {
     reviewsDispatch(updateReviewThunk({ repo, data, reviewId }));
   };
 
+  const reviewsStateReset = () => {
+    reviewsDispatch(reset());
+    return;
+  };
+
   return {
     getReviews,
     searchedReview,
@@ -51,5 +57,6 @@ export function useReviews() {
     reviews,
     updateReview,
     reviewsStatus,
+    reviewsStateReset,
   };
 }

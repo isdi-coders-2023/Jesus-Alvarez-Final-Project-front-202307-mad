@@ -15,35 +15,35 @@ export function Footer() {
   };
 
   return (
-    <footer role="footer">
+    <footer role="navigation">
       <div className={styles['menu']}>
         <div className={styles['icons']}>
           {userStatus === 'visitor' ? null : (
             <Link to={'/'} onClick={handleLogOut}>
               <span className={styles['logout']}>
-                <TbLogout2 />
+                <TbLogout2 aria-label="Logout button" />
               </span>
             </Link>
           )}
 
-          <Link to={'/'}>
-            <span className={styles['home']}>
-              <BiTennisBall />
+          <Link to="/courts">
+            <span role="link" className={styles['home']}>
+              <BiTennisBall aria-label="Home button" role="button" />
             </span>
           </Link>
 
           {userStatus === 'visitor' ? null : (
             <Link to={'/profile'}>
               <span role="button" className={styles['logout']}>
-                <RxPerson />
+                <RxPerson aria-label="Profile button" />
               </span>
             </Link>
           )}
 
           {userStatus === 'visitor' ? (
             <Link to="/login">
-              <span className={styles['login']}>
-                <BsFillPersonFill />
+              <span role="link" className={styles['login']}>
+                <BsFillPersonFill role="button" aria-label="Login button" />
               </span>
             </Link>
           ) : null}

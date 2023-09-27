@@ -1,5 +1,6 @@
 import { SyntheticEvent, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { useUsers } from '../../hooks/use-users';
 import { UserLoginData } from '../../model/user';
 import styles from './login.module.scss';
@@ -21,7 +22,16 @@ export function Login() {
 
   useEffect(() => {
     if (userStatus === 'visitor') return;
-    if (userStatus === 'logged') navigate('/');
+    if (userStatus === 'logged') {
+      Swal.fire({
+        title: 'Bienvenido',
+        width: '20rem',
+        padding: '2rem 0',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate('/');
+    }
   }, [userStatus, navigate]);
   return (
     <>

@@ -26,7 +26,7 @@ describe('Given the component Footer', () => {
       );
     });
     test('Then, a slogan should be in the document', () => {
-      const element = screen.getByRole('footer');
+      const element = screen.getByRole('navigation');
       expect(element).toBeInTheDocument();
     });
   });

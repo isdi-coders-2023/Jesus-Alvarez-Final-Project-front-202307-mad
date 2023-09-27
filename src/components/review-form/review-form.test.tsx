@@ -23,6 +23,7 @@ describe('Given the component ReviewForm', () => {
   describe('When it is rendered', () => {
     (useReviews as jest.Mock).mockReturnValue({
       createReviews: jest.fn(),
+      reviewsStatus: '',
     });
     (useUsers as jest.Mock).mockReturnValue({
       userId: 'jest.fn()',

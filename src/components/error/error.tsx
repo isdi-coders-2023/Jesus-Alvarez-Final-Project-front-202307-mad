@@ -5,7 +5,7 @@ export function Error() {
     <>
       <div>
         <h2>Lo sentimos, ha ocurrido un error.</h2>
-        <Link rel="stylesheet" to="./">
+        <Link rel="stylesheet" to="/">
           Regresar
         </Link>
       </div>

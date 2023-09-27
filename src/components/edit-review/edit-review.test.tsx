@@ -7,9 +7,14 @@ import { tennisZoneStore } from '../../store/store';
 import { EditReview } from './edit-review';
 jest.mock('../../hooks/use-reviews');
 
+jest.mock('sweetalert2', () => ({
+  fire: jest.fn(),
+}));
+
 describe('Given the component EditReview', () => {
   describe('When it is rendered', () => {
     const mockNavigate = jest.fn();
+
     jest.mock('react-router-dom', () => ({
       ...jest.requireActual('react-router-dom'),
       useNavigate: () => ({
@@ -20,7 +25,7 @@ describe('Given the component EditReview', () => {
     (useReviews as jest.Mock).mockReturnValue({
       searchedReview: {},
       updateReview: jest.fn(),
-      reviewStatus: 'updated',
+      reviewStatus: 'loading',
     });
 
     render(

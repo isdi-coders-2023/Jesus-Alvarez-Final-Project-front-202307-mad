@@ -40,7 +40,7 @@ describe('Given the component court-reviews', () => {
     });
 
     (useUsers as jest.Mock).mockReturnValue({
-      token: 'mockToken',
+      token: 'token',
     });
 
     beforeEach(() => {

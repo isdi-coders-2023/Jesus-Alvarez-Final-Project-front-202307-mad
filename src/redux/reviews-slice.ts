@@ -30,7 +30,11 @@ const initialState: ReviewsState = {
 const reviewsSlice = createSlice({
   name: 'reviews',
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    reset: (state) => {
+      state.reviewsStatus = '';
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getReviewsThunk.pending, (state) => {
       state.reviewsStatus = 'loading';
@@ -48,6 +52,9 @@ const reviewsSlice = createSlice({
     builder.addCase(createReviewThunk.fulfilled, (state, { payload }) => {
       state.reviewsStatus = 'created';
       state.reviews.push(payload);
+    });
+    builder.addCase(createReviewThunk.rejected, (state) => {
+      state.reviewsStatus = 'error';
     });
     builder.addCase(deleteReviewThunk.pending, (state) => {
       state.reviewsStatus = 'loading';
@@ -80,5 +87,5 @@ const reviewsSlice = createSlice({
   },
 });
 
-export const actions = reviewsSlice.actions;
+export const { reset } = reviewsSlice.actions;
 export default reviewsSlice.reducer;

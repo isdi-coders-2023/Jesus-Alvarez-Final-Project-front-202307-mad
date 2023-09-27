@@ -19,6 +19,7 @@ describe('Given the hook useReviews()', () => {
       deleteReviews,
       getByIdReview,
       updateReview,
+      reviewsStateReset,
     } = useReviews();
 
     const mockReview = {} as unknown as FormData;
@@ -40,6 +41,9 @@ describe('Given the hook useReviews()', () => {
         </button>
         <button role="button" onClick={() => updateReview('', mockReview)}>
           5
+        </button>
+        <button role="button" onClick={() => reviewsStateReset()}>
+          6
         </button>
       </>
     );
@@ -75,6 +79,11 @@ describe('Given the hook useReviews()', () => {
     test('Then if we click on 5, the state shouldve changed', async () => {
       const buttons = screen.getAllByRole('button');
       await userEvent.click(buttons[4]);
+      expect(useDispatch()).toHaveBeenCalled();
+    });
+    test('Then if we click on 6, the state shouldve changed', async () => {
+      const buttons = screen.getAllByRole('button');
+      await userEvent.click(buttons[5]);
       expect(useDispatch()).toHaveBeenCalled();
     });
   });
