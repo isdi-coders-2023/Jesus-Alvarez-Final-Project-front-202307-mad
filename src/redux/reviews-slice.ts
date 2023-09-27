@@ -49,6 +49,9 @@ const reviewsSlice = createSlice({
       state.reviewsStatus = 'created';
       state.reviews.push(payload);
     });
+    builder.addCase(createReviewThunk.rejected, (state) => {
+      state.reviewsStatus = 'error';
+    });
     builder.addCase(deleteReviewThunk.pending, (state) => {
       state.reviewsStatus = 'loading';
     });
