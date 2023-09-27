@@ -18,6 +18,7 @@ export const createReviewThunk = createAsyncThunk<
   }
 >('reviews/create', async ({ repo, data }) => {
   const fullReview = await repo.create(data);
+
   return fullReview;
 });
 

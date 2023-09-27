@@ -10,7 +10,7 @@ import styles from './review-form.module.scss';
 export function ReviewForm() {
   const { userId } = useUsers();
   const { courts } = useCourts();
-  const { createReviews, reviewsStatus } = useReviews();
+  const { createReviews, reviewsStatus, reviewsStateReset } = useReviews();
 
   const { id } = useParams();
   const court = courts.find((court) => court.id === id) as Court;
@@ -38,6 +38,9 @@ export function ReviewForm() {
         padding: '2rem 0',
         timer: 2000,
       });
+      setTimeout(() => {
+        reviewsStateReset();
+      }, 3000);
     }
     if (reviewsStatus === 'error') {
       Swal.fire({
@@ -52,7 +55,7 @@ export function ReviewForm() {
         timer: 2000,
       });
     }
-  }, [reviewsStatus]);
+  }, [reviewsStateReset, reviewsStatus]);
 
   return (
     <>
