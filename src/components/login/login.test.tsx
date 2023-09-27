@@ -50,9 +50,9 @@ describe('Given the component Login', () => {
       const formElement = screen.getByRole('form');
       const inputElements = screen.getAllByRole('textbox');
       await userEvent.type(inputElements[0], mockUser.email);
-      // await userEvent.type(inputElements[1], mockUser.password);
+
       expect(inputElements[0]).toHaveValue(mockUser.email);
-      // expect(inputElements[1]).toHaveValue(mockUser.password);
+
       await fireEvent.submit(formElement);
 
       expect(useUsers().usersLogin).toHaveBeenCalled();
