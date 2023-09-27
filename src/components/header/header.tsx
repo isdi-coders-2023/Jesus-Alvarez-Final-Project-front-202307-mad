@@ -6,7 +6,7 @@ export function Header() {
   return (
     <header>
       <div className={styles['main-header']}>
-        <div>
+        <div className={styles['user-greet']}>
           {userStatus === 'visitor' ? null : <p> Hola {user?.firstName}!</p>}
         </div>
         <div>

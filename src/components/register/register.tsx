@@ -18,7 +18,7 @@ export function Register() {
 
   useEffect(() => {
     if (registerStatus === 'loading') return;
-    if (registerStatus === 'registered') navigate('/');
+    if (registerStatus === 'registered') navigate('/login');
     if (registerStatus === 'error') navigate('/error');
   }, [registerStatus, navigate]);
 

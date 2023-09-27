@@ -20,11 +20,11 @@ export function ReviewCard({ review }: Props) {
 
   return (
     <div className={styles['main-div']}>
-      <span>
-        Autor: {review.userId.firstName} {review.userId.lastName}
+      <span className={styles['user-name']}>
+        {review.userId.firstName} {review.userId.lastName}
       </span>
-      <span>Reseña: {review.description}</span>
-      <span>Foto:</span>
+      <span>{review.description}</span>
+
       <img
         className={styles['reviewpic']}
         width="250px"

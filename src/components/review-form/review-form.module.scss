@@ -20,7 +20,7 @@
 
 .main-page-form {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .button-submit {
@@ -57,4 +57,14 @@
 
   cursor: pointer;
   transition: transform 0.2s ease-out;
+}
+
+.form-2 {
+  display: flex;
+  gap: 0;
+}
+
+.h3 {
+  margin: 0;
+  padding: 0.5rem;
 }

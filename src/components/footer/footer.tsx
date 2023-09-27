@@ -26,7 +26,7 @@ export function Footer() {
             </Link>
           )}
 
-          <Link to={'/'}>
+          <Link to="/courts">
             <span role="link" className={styles['home']}>
               <BiTennisBall aria-label="Home button" role="button" />
             </span>

@@ -28,6 +28,7 @@ const usersSlice = createSlice({
       state.userStatus = 'visitor';
       state.token = '';
       state.userId = '';
+      state.registerStatus = '';
     },
   },
   extraReducers: (builder) => {

@@ -31,8 +31,8 @@ export function ReviewForm() {
           role="form"
         >
           <div className={styles['form-2']}>
-            <h3>¿Jugaste aquí?</h3>
-            <h3>Deja una reseña</h3>
+            <h3 className={styles['h3']}>¿Jugaste aquí?</h3>
+            <h3 className={styles['h3']}>Deja una reseña</h3>
             <div>
               <label htmlFor="description"></label>
             </div>
