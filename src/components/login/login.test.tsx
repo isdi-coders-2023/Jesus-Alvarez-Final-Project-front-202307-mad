@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import { useUsers } from '../../hooks/use-users';
@@ -32,6 +33,10 @@ describe('Given the component Login', () => {
       );
     });
 
+    const mockUser = {
+      email: 'hola@gmail.com',
+      password: 'dfafdaf',
+    };
     test('Then, it should render a button', () => {
       const element = screen.getByRole('button');
       expect(element).toBeInTheDocument();
@@ -39,6 +44,17 @@ describe('Given the component Login', () => {
     test('Then, when we click on the submit button', async () => {
       const formElement = screen.getByRole('form');
       await fireEvent.submit(formElement);
+      expect(useUsers().usersLogin).toHaveBeenCalled();
+    });
+    test('', async () => {
+      const formElement = screen.getByRole('form');
+      const inputElements = screen.getAllByRole('textbox');
+      await userEvent.type(inputElements[0], mockUser.email);
+      // await userEvent.type(inputElements[1], mockUser.password);
+      expect(inputElements[0]).toHaveValue(mockUser.email);
+      // expect(inputElements[1]).toHaveValue(mockUser.password);
+      await fireEvent.submit(formElement);
+
       expect(useUsers().usersLogin).toHaveBeenCalled();
     });
   });
