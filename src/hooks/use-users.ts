@@ -9,7 +9,9 @@ import { ApiUserRepository } from '../services/user-repository';
 import { RootState, TennisZoneDispatch } from '../store/store';
 
 export function useUsers() {
+
   const repo = useMemo(() => new ApiUserRepository(localUrl + '/users'), []);
+
 
   const { userStatus, registerStatus, token, userId, user } = useSelector(
     (state: RootState) => state.tennisZoneUsers
