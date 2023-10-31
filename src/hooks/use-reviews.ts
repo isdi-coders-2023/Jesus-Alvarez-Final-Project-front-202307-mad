@@ -14,7 +14,7 @@ import { RootState, TennisZoneDispatch } from '../store/store';
 
 export function useReviews() {
   const repo = useMemo(
-    () => new ApiReviewRepository('http://localhost:4300/reviews'),
+    () => new ApiReviewRepository('https://tennis-backend-rx1a.onrender.com'),
     []
   );
 
