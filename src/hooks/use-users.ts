@@ -9,7 +9,7 @@ import { RootState, TennisZoneDispatch } from '../store/store';
 
 export function useUsers() {
   const repo = useMemo(
-    () => new ApiUserRepository('http://localhost:4300/users'),
+    () => new ApiUserRepository('https://tennis-backend-rx1a.onrender.com'),
     []
   );
 
