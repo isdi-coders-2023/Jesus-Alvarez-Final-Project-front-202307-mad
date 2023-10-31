@@ -8,7 +8,9 @@ import { tennisZoneStore } from '../../store/store';
 import { Login } from './login';
 
 jest.mock('../../hooks/use-users');
-
+jest.mock('../../config.ts', () => ({
+  localUrl: '',
+}));
 describe('Given the component Login', () => {
   describe('When it is rendered with visitor status ', () => {
     const mockNavigate = jest.fn();

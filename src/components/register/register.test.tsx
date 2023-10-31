@@ -7,6 +7,9 @@ import { tennisZoneStore } from '../../store/store';
 import { Register } from './register';
 
 jest.mock('../../hooks/use-users');
+jest.mock('../../config.ts', () => ({
+  localUrl: '',
+}));
 
 describe('Given the component Register', () => {
   const mockNavigate = jest.fn();
