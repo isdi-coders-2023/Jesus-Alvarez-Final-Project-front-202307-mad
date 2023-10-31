@@ -1,5 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { localUrl } from '../config';
 import { Review } from '../model/review';
 import { reset } from '../redux/reviews-slice';
 import {
@@ -14,7 +15,7 @@ import { RootState, TennisZoneDispatch } from '../store/store';
 
 export function useReviews() {
   const repo = useMemo(
-    () => new ApiReviewRepository('https://tennis-backend-rx1a.onrender.com'),
+    () => new ApiReviewRepository(localUrl + '/reviews'),
     []
   );
 

@@ -4,11 +4,13 @@ import { getCourtsThunk } from '../redux/courts-thunks';
 import { ApiCourtRepository } from '../services/court-repository';
 import { RootState, TennisZoneDispatch } from '../store/store';
 
+import { localUrl } from '../config';
+
 export function useCourts() {
-  const repo = useMemo(
-    () => new ApiCourtRepository('https://tennis-backend-rx1a.onrender.com'),
-    []
-  );
+
+  const repo = useMemo(() => new ApiCourtRepository(localUrl + '/courts'), []);
+
+
 
   const { courtsStatus, courts } = useSelector(
     (state: RootState) => state.tennisZoneCourts

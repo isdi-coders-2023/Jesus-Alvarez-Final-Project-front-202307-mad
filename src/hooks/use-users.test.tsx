@@ -12,6 +12,10 @@ jest.mock('react-redux', () => ({
   useDispatch: jest.fn().mockReturnValue(jest.fn()),
 }));
 
+jest.mock('../config', () => ({
+  localUrl: '',
+}));
+
 describe('Given the hook useUsers', () => {
   function TestComponent() {
     const { usersRegister, usersLogin, usersLogout } = useUsers();
