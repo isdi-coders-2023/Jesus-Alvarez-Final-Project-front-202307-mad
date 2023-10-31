@@ -1,1 +1,1 @@
-export const localUrl = import.meta.env.viteURL;
+export const localUrl = process.env.viteURL;
