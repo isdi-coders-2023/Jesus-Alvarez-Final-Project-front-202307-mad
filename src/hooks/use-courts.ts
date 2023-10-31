@@ -6,7 +6,7 @@ import { RootState, TennisZoneDispatch } from '../store/store';
 
 export function useCourts() {
   const repo = useMemo(
-    () => new ApiCourtRepository('http://localhost:4300/courts'),
+    () => new ApiCourtRepository('https://tennis-backend-rx1a.onrender.com'),
     []
   );
 
